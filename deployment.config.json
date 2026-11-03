@@ -1,0 +1,17 @@
+{
+  "name": "finmax",
+  "version": 2,
+  "deploymentType": "static-site",
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/static-build"
+    }
+  ],
+  "outputDirectory": "dist",
+  "framework": "vite",
+  "ignoreCommand": "true",
+  "supabase": false,
+  "functions": false,
+  "edgeFunctions": false
+}

@@ -1,0 +1,27 @@
+{
+  "version": 2,
+  "deployment": {
+    "type": "static-site",
+    "skipSupabase": true,
+    "skipEdgeFunctions": true,
+    "disableSupabase": true,
+    "deploySupabaseFunctions": false,
+    "skipServerFunctions": true,
+    "staticOnly": true,
+    "noBackend": true
+  },
+  "integrations": {
+    "supabase": false
+  },
+  "supabase": {
+    "enabled": false,
+    "connected": false,
+    "projectId": null
+  },
+  "functions": {
+    "enabled": false
+  },
+  "edgeFunctions": {
+    "enabled": false
+  }
+}

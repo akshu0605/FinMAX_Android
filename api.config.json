@@ -1,0 +1,27 @@
+{
+  "integrations": {
+    "supabase": {
+      "ks9YcLFB6H68Ar9He2n8Rd": {
+        "enabled": false,
+        "deploy": false,
+        "skipDeployment": true,
+        "edgeFunctions": {
+          "enabled": false,
+          "deploy": false,
+          "make-server": {
+            "enabled": false,
+            "deploy": false
+          },
+          "server": {
+            "enabled": false,
+            "deploy": false
+          }
+        }
+      }
+    }
+  },
+  "deployment": {
+    "type": "static-only",
+    "skipAllIntegrations": true
+  }
+}

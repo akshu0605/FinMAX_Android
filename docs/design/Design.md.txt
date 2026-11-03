@@ -1,0 +1,69 @@
+# Project Specification: NightSec Stealth Landing Page
+
+## 1. Design Overview
+* **Aesthetic:** High-contrast, Cyber-noir, Minimalist Professional.
+* **Base Color:** Pure Black (`#000000`).
+* **Accent Color:** Electric Cyan/Teal (`#00F2EA`) with a secondary "Glow" effect.
+* **Typography:** * **Headings:** Bold Sans-serif (Inter, Geist, or SF Pro).
+    * **Body/Labels:** Monospace (JetBrains Mono) for a technical feel.
+
+---
+
+## 2. Component Architecture
+
+### A. Global Navigation
+- **Position:** Sticky top with `backdrop-filter: blur(12px)`.
+- **Elements:** - Left: Minimalist SVG Logo (Teal).
+    - Center: Links (Overview, Features, Pricing) in Muted Gray (`#A1A1A1`), white on hover.
+    - Right: "Get Started" CTA (Solid Teal background, Black text).
+
+### B. Hero Section
+- **Heading:** Centered H1, White, Font-weight 800.
+- **Subtext:** Max-width 600px, Muted Gray.
+- **Visual:** A centered, low-opacity "Global Network" or "Globe" wireframe SVG animation.
+- **Buttons:** - Primary: Solid Teal.
+    - Secondary: Transparent with 1px Teal border.
+
+### C. Services / Feature Grid
+- **Layout:** 3x2 Grid (Desktop) / 1-column (Mobile).
+- **Card Design:** - Background: Deep Gray (`#0A0A0A`).
+    - Border: 1px Solid `#1A1A1A`.
+    - Content: Icon (Teal glow), Bold Title, Muted Description.
+- **Interaction:** Hover triggers a subtle Teal box-shadow glow.
+
+### D. Pricing Section
+- **Toggles:** Monthly/Yearly switch with a sliding animation.
+- **Card Hierarchy:** - Basic (Flat).
+    - Pro (Teal Border, "Most Popular" badge).
+    - Enterprise (Flat).
+- **Lists:** Use Checkmarks with `drop-shadow(0 0 5px #00F2EA)`.
+
+---
+
+## 3. Technical Requirements (Tailwind + Framer Motion)
+- **Container:** Max-width `1280px` with responsive horizontal padding.
+- **Animations:** - `initial={{ opacity: 0, y: 20 }}`
+    - `whileInView={{ opacity: 1, y: 0 }}`
+    - `viewport={{ once: true }}`
+- **Images:** Apply a slight "scanline" or "noise" overlay filter to character images to maintain the hacker aesthetic.
+
+---
+
+## 4. Agent Self-Correction & Feedback Loop
+*The agent must run these checks after generating each component:*
+
+1.  **Visual Audit:** "Is the background #000000? If it is dark gray, change it to pure black."
+2.  **Contrast Check:** "Is the primary text #FFFFFF and secondary text #A1A1A1? Ensure no text is lost against the black background."
+3.  **Spacing Check:** "Does the section padding follow a consistent 80px or 120px vertical gap?"
+4.  **Responsiveness:** "Does the navigation collapse into a hamburger menu on screens smaller than 768px?"
+5.  **Iteration Prompt:** If the UI looks 'flat,' the agent must add a `radial-gradient` background (Teal to Transparent, 10% opacity) behind the hero section.
+
+---
+
+## 5. File Structure Suggestion
+- `/components/Navbar.tsx`
+- `/components/Hero.tsx`
+- `/components/Features.tsx`
+- `/components/Pricing.tsx`
+- `/components/Footer.tsx`
+- `/styles/globals.css` (Include custom glow utility classes)

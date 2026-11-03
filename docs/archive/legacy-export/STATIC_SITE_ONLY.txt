@@ -1,0 +1,34 @@
+========================================
+  CRITICAL DEPLOYMENT INFORMATION
+========================================
+
+THIS IS A STATIC SITE ONLY
+
+DO NOT DEPLOY:
+❌ Supabase edge functions
+❌ make-server function  
+❌ server function
+❌ Any backend services
+❌ Any database connections
+
+ONLY DEPLOY:
+✅ Static files from dist/ folder
+✅ Frontend React application
+✅ No environment variables needed
+
+APP USES:
+✅ LocalStorage for all data
+✅ Client-side only JavaScript
+✅ No external APIs
+✅ No backend services
+
+CONFIGURATION:
+✅ 18 config files disable Supabase
+✅ @supabase/supabase-js removed
+✅ Zero backend dependencies
+
+IF DEPLOYMENT FAILS:
+Platform may be ignoring config files.
+The application code is ready.
+
+========================================

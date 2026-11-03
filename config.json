@@ -1,0 +1,38 @@
+{
+  "version": "1.0",
+  "deployment": {
+    "type": "static",
+    "skipIntegrations": true,
+    "integrations": {
+      "supabase": {
+        "enabled": false,
+        "skip": true,
+        "deployFunctions": false,
+        "projectId": null
+      }
+    }
+  },
+  "build": {
+    "command": "npm run build",
+    "output": "dist"
+  },
+  "supabase": {
+    "enabled": false,
+    "functions": {
+      "enabled": false,
+      "deploy": false,
+      "server": {
+        "enabled": false,
+        "deploy": false
+      },
+      "make-server": {
+        "enabled": false,
+        "deploy": false
+      }
+    },
+    "edgeFunctions": {
+      "enabled": false,
+      "deploy": false
+    }
+  }
+}

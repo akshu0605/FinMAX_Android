@@ -1,0 +1,57 @@
+# dependencies
+**/node_modules/
+android/.gradle/
+android/local.properties
+**/build/
+**/.gradle/
+**/.expo/
+.vercel/
+
+# Historical platform export placeholders (not part of the Vite app)
+/DISABLE_SUPABASE_INTEGRATION/
+/FORCE_STATIC_DEPLOY/
+/SKIP_SUPABASE_DEPLOYMENT/
+
+# production build
+dist/
+
+# environment files
+.env
+.env.*
+!.env.example
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Local Netlify folder
+.netlify
+
+# Android signing keys and local signing properties
+**/*.keystore
+**/*.jks
+**/*.pem
+**/*.p12
+**/key.properties
+
+# Generated packages and local device captures
+*.apk
+*.aab
+*.apks
+*.hprof
+*.log

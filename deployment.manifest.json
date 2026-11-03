@@ -1,0 +1,40 @@
+{
+  "version": "1.0",
+  "applicationName": "FinMax",
+  "deploymentType": "static-site",
+  "requiresBackend": false,
+  "requiresSupabase": false,
+  "requiresEdgeFunctions": false,
+  "requiresServerFunctions": false,
+  
+  "build": {
+    "command": "npm run build",
+    "outputDirectory": "dist",
+    "framework": "vite"
+  },
+  
+  "integrations": {
+    "supabase": {
+      "required": false,
+      "enabled": false,
+      "skipDeployment": true,
+      "projectId": null,
+      "functions": [],
+      "edgeFunctions": []
+    }
+  },
+  
+  "deployment": {
+    "strategy": "static-only",
+    "skipIntegrationDeployment": true,
+    "deployOnlyStaticAssets": true,
+    "ignoreSupabaseProject": "ks9YcLFB6H68Ar9He2n8Rd"
+  },
+  
+  "metadata": {
+    "description": "Pure frontend application using localStorage for all data",
+    "backend": "none",
+    "database": "localStorage (client-side only)",
+    "authentication": "localStorage (client-side only)"
+  }
+}

@@ -1,0 +1,312 @@
+#finmax-dashboard {
+  --ns-cyan: #45c8a1;
+  --ns-glow-cyan: 0 4px 14px rgba(69, 200, 161, 0.12);
+  --ns-glow-cyan-strong: 0 6px 18px rgba(69, 200, 161, 0.18);
+  --dashboard-bg: #080A09;
+  --dashboard-panel: #0E1210;
+  --dashboard-panel-soft: #121815;
+  --dashboard-panel-elevated: #151D19;
+  --dashboard-border: rgba(255, 255, 255, 0.065);
+  --dashboard-border-hover: rgba(255, 255, 255, 0.12);
+  background:
+    radial-gradient(ellipse at 85% -10%, rgba(45, 111, 87, 0.14), transparent 45%),
+    radial-gradient(ellipse at 15% 100%, rgba(30, 60, 50, 0.08), transparent 40%),
+    var(--dashboard-bg) !important;
+  color: #f1f5f3;
+  min-height: 100vh;
+}
+
+/* Sidebar styling - 240px desktop width */
+#finmax-dashboard aside {
+  width: 15rem !important; /* 240px */
+  background: rgba(12, 16, 14, 0.98) !important;
+  border-right: 1px solid var(--dashboard-border) !important;
+  box-shadow: none !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  padding: 1.25rem 1rem !important;
+}
+
+#finmax-dashboard aside > .absolute.inset-0 { display: none; }
+#finmax-dashboard aside > div.mb-10 { margin-bottom: 1.5rem !important; }
+#finmax-dashboard aside svg { filter: none !important; }
+#finmax-dashboard aside span[style*="text-shadow"] { text-shadow: none !important; }
+#finmax-dashboard aside span[style*="color: rgb(0, 242, 234)"] { color: #45c8a1 !important; }
+#finmax-dashboard aside .flex.items-center.gap-2 > div svg { color: #45c8a1 !important; }
+#finmax-dashboard aside .flex.items-center.gap-2 > span > span:first-child { color: #45c8a1 !important; text-shadow: none !important; }
+
+#finmax-dashboard aside nav button {
+  border-radius: 10px !important;
+  padding: 0.625rem 0.75rem !important;
+  font-size: 0.8125rem !important;
+  transition: background-color 160ms ease, color 160ms ease, border-color 160ms ease !important;
+}
+
+#finmax-dashboard aside nav button[style*="rgba(0,242,234,0.1)"] {
+  background: rgba(69, 200, 161, 0.1) !important;
+  border-color: rgba(69, 200, 161, 0.22) !important;
+  box-shadow: 0 0 12px rgba(69, 200, 161, 0.08) !important;
+}
+
+#finmax-dashboard aside nav button[style*="rgba(0,242,234,0.1)"] > div { display: none; }
+#finmax-dashboard aside > div:last-child {
+  border-color: var(--dashboard-border) !important;
+  padding-top: 0.75rem !important;
+}
+
+/* Glass & Card Surfaces */
+#finmax-dashboard .ns-glass,
+#finmax-dashboard .ns-glass-active {
+  background: var(--dashboard-panel) !important;
+  border: 1px solid var(--dashboard-border) !important;
+  border-radius: 18px !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+#finmax-dashboard .ns-glass svg,
+#finmax-dashboard .ns-glass-active svg { filter: none !important; }
+
+#finmax-dashboard .ns-glass-active {
+  background: linear-gradient(145deg, rgba(69, 200, 161, 0.06), #0E1210 60%) !important;
+  border-color: rgba(69, 200, 161, 0.2) !important;
+}
+
+#finmax-dashboard .ns-glass > .absolute.inset-x-0,
+#finmax-dashboard .ns-glass-active > .absolute.inset-x-0,
+#finmax-dashboard .ns-glass > .absolute.inset-0,
+#finmax-dashboard .ns-glass-active > .absolute.inset-0 { opacity: 0 !important; }
+
+#finmax-dashboard [style*="backdrop-filter"] {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+#finmax-dashboard button[style*="box-shadow"] { box-shadow: none !important; }
+#finmax-dashboard .dashboard-reminders-header + .grid { align-items: start; }
+#finmax-dashboard .dashboard-mobile-toggle { display: none; }
+
+/* AI Insights panel */
+#finmax-dashboard .dashboard-ai-insights {
+  max-width: 980px;
+  padding: clamp(0.25rem, 1vw, 0.75rem) 0 2rem;
+}
+#finmax-dashboard .dashboard-ai-insights [style*="backdropFilter"] {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+#finmax-dashboard .dashboard-ai-insights [style*="borderRadius: 20px"] {
+  border-radius: 16px !important;
+  background: #0E1210 !important;
+  border-color: var(--dashboard-border) !important;
+}
+#finmax-dashboard .dashboard-ai-insights [style*="rgba(0,242,234,0.07)"] {
+  background: rgba(69, 200, 161, 0.08) !important;
+  border-color: rgba(69, 200, 161, 0.18) !important;
+}
+
+/* Stat Cards (CRED inspired visual depth) */
+#finmax-dashboard .dashboard-stat-card {
+  position: relative;
+  border-radius: 16px !important;
+  min-height: 120px !important;
+  padding: 1rem 1.15rem !important;
+  background: #0E1210 !important;
+  border: 1px solid var(--dashboard-border) !important;
+  overflow: hidden;
+  transition: transform 200ms ease, border-color 200ms ease, box-shadow 200ms ease;
+}
+
+#finmax-dashboard .dashboard-stat-card:hover {
+  border-color: var(--dashboard-border-hover) !important;
+  box-shadow: 0 10px 28px -8px rgba(0, 0, 0, 0.4) !important;
+}
+
+#finmax-dashboard .dashboard-detail-panels > .grid { gap: 1rem !important; }
+#finmax-dashboard .dashboard-detail-panels > .ns-glass { margin-bottom: 1rem !important; }
+
+/* Top spending */
+#finmax-dashboard .dashboard-top-spending-row {
+  min-width: 0;
+  width: 100%;
+  text-align: left;
+  color: inherit;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  background: rgba(255, 255, 255, 0.02);
+  transition: border-color 180ms ease, background 180ms ease, transform 180ms ease;
+}
+
+#finmax-dashboard .dashboard-top-spending-row:hover {
+  border-color: rgba(69, 200, 161, 0.26);
+  background: rgba(69, 200, 161, 0.045);
+  transform: translateY(-1px);
+}
+
+#finmax-dashboard .dashboard-top-spending-rank {
+  display: inline-flex;
+  width: 1.6rem;
+  height: 1.6rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: rgba(69, 200, 161, 0.08);
+  color: #8ce0bf;
+}
+
+#finmax-dashboard .expense-detail-trigger {
+  cursor: pointer;
+}
+
+#finmax-dashboard .expense-detail-trigger:focus-visible,
+#finmax-dashboard .dashboard-top-spending-row:focus-visible {
+  outline: 2px solid #45c8a1;
+  outline-offset: 2px;
+}
+
+/* Forms & inputs */
+#finmax-dashboard input,
+#finmax-dashboard select {
+  border-color: rgba(255, 255, 255, 0.1) !important;
+  background: rgba(255, 255, 255, 0.035) !important;
+}
+#finmax-dashboard input:focus,
+#finmax-dashboard select:focus {
+  border-color: #45c8a1 !important;
+  box-shadow: 0 0 0 3px rgba(69, 200, 161, 0.12) !important;
+}
+#finmax-dashboard button:focus-visible,
+#finmax-dashboard input:focus-visible,
+#finmax-dashboard select:focus-visible {
+  outline: 2px solid #45c8a1;
+  outline-offset: 2px;
+}
+
+/* Mobile bottom nav */
+#finmax-dashboard .fixed.bottom-0 {
+  background: rgba(12, 16, 14, 0.98) !important;
+  border-color: var(--dashboard-border) !important;
+  box-shadow: 0 -4px 18px rgba(0, 0, 0, 0.3) !important;
+  backdrop-filter: blur(18px) !important;
+  padding-bottom: var(--safe-area-inset-bottom, env(safe-area-inset-bottom, 0px));
+}
+
+/* Responsive adjustments */
+@media (min-width: 1024px) {
+  #finmax-dashboard .lg\:ml-60 {
+    margin-left: 15rem !important; /* matches 240px sidebar */
+  }
+}
+
+@media (max-width: 1023px) {
+  #finmax-dashboard aside {
+    border-right: 1px solid var(--dashboard-border) !important;
+    width: 16rem !important;
+  }
+  #finmax-dashboard .lg\:ml-60,
+  #finmax-dashboard .lg\:ml-64 {
+    margin-left: 0 !important;
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
+  }
+}
+
+@media (max-width: 767px) {
+  #finmax-dashboard .dashboard-mobile-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding: 0.75rem 0.875rem;
+    margin-bottom: 1rem;
+    border: 1px solid var(--dashboard-border);
+    border-radius: 14px;
+    background: #0E1210;
+  }
+  #finmax-dashboard .dashboard-mobile-toggle-button {
+    display: inline-flex;
+    min-height: 40px;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    flex-shrink: 0;
+    padding: 0 0.75rem;
+    border: 1px solid rgba(69, 200, 161, 0.2);
+    border-radius: 10px;
+    background: rgba(69, 200, 161, 0.1);
+    color: #8ce0bf;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  #finmax-dashboard .dashboard-detail-panels .dashboard-spending-category {
+    min-height: 280px !important;
+    padding: 1rem !important;
+  }
+  #finmax-dashboard .dashboard-detail-panels .dashboard-trend-chart {
+    height: 200px !important;
+  }
+  #finmax-dashboard .dashboard-detail-panels .mb-8 { margin-bottom: 1rem !important; }
+  #finmax-dashboard .dashboard-detail-panels h2 { font-size: 1.15rem; }
+}
+
+@media (max-width: 640px) {
+  #finmax-dashboard input,
+  #finmax-dashboard select,
+  #finmax-dashboard textarea { font-size: 16px !important; }
+
+  #finmax-dashboard .lg\:ml-60,
+  #finmax-dashboard .lg\:ml-64 {
+    padding: 1rem 0.875rem 6rem !important;
+  }
+  #finmax-dashboard .lg\:ml-60 > .mb-8:first-child,
+  #finmax-dashboard .lg\:ml-64 > .mb-8:first-child {
+    margin-bottom: 1.25rem;
+  }
+  #finmax-dashboard h1 { font-size: 1.4rem; line-height: 1.2; }
+  #finmax-dashboard .grid.grid-cols-1.md\:grid-cols-2.lg\:grid-cols-4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.625rem;
+    margin-bottom: 1.25rem;
+  }
+  #finmax-dashboard .dashboard-stat-card {
+    min-height: 108px !important;
+    padding: 0.75rem 0.875rem !important;
+  }
+  #finmax-dashboard .dashboard-stat-card .mb-4 { margin-bottom: 0.5rem !important; }
+  #finmax-dashboard .dashboard-stat-card .w-10.h-10,
+  #finmax-dashboard .dashboard-stat-card .w-12.h-12 {
+    width: 2rem !important;
+    height: 2rem !important;
+  }
+  #finmax-dashboard .dashboard-stat-card svg {
+    width: 1rem !important;
+    height: 1rem !important;
+  }
+  #finmax-dashboard .dashboard-stat-card .text-2xl {
+    font-size: 1.15rem !important;
+    line-height: 1.3;
+  }
+  #finmax-dashboard .ns-glass,
+  #finmax-dashboard .ns-glass-active { border-radius: 14px !important; }
+  #finmax-dashboard .dashboard-reminders-header { align-items: stretch; flex-direction: column; }
+  #finmax-dashboard .fixed.bottom-0 > div { padding-left: 0.25rem; padding-right: 0.25rem; }
+  #finmax-dashboard .fixed.bottom-0 button { min-width: 0; padding: 0.5rem 0.35rem; }
+  #finmax-dashboard .fixed.bottom-0 button span { font-size: 0.58rem; line-height: 1; }
+}
+
+@media (max-width: 360px) {
+  #finmax-dashboard .grid.grid-cols-1.md\:grid-cols-2.lg\:grid-cols-4 {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #finmax-dashboard *,
+  #finmax-dashboard *::before,
+  #finmax-dashboard *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

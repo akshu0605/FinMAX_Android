@@ -1,0 +1,21 @@
+{
+  "version": 2,
+  "deploymentType": "static",
+  "integrations": {
+    "supabase": false
+  },
+  "supabase": {
+    "enabled": false,
+    "connected": false,
+    "deployEdgeFunctions": false,
+    "deploy": false,
+    "projectId": null
+  },
+  "deployment": {
+    "skipSupabase": true,
+    "disableSupabase": true,
+    "staticOnly": true
+  },
+  "functions": false,
+  "edgeFunctions": false
+}

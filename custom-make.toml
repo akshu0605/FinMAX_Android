@@ -1,0 +1,39 @@
+# ===================================================
+# FIGMA MAKE DEPLOYMENT CONFIGURATION
+# ===================================================
+# 
+# ⚠️  CRITICAL: DO NOT DEPLOY SUPABASE
+# 
+# This is a pure frontend application with:
+# - LocalStorage-based authentication
+# - No backend/database requirements
+# - No edge functions needed
+# - Zero external service dependencies
+#
+# ===================================================
+
+[deployment]
+skip_supabase = true
+skip_edge_functions = true
+deploy_supabase_functions = false
+enable_supabase = false
+
+[integrations.supabase]
+enabled = false
+deploy = false
+connect = false
+deploy_edge_functions = false
+deploy_make_server = false
+
+[build]
+command = "npm run build"
+output = "dist"
+framework = "vite"
+
+[ignore]
+patterns = [
+  "**/supabase/**",
+  "**/.supabase/**",
+  "**/functions/**",
+  "**/edge_functions/**"
+]

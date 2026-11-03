@@ -1,0 +1,119 @@
+#finmax-settings {
+  --settings-bg: #0d1012;
+  --settings-surface: #15191b;
+  --settings-surface-soft: #111517;
+  --settings-border: rgba(255, 255, 255, 0.09);
+  --settings-text: #f4f5f5;
+  --settings-muted: #9ba3a5;
+  min-height: 100vh;
+  background: var(--settings-bg) !important;
+  color: var(--settings-text);
+  transition: background-color 180ms ease, color 180ms ease;
+}
+
+#finmax-settings[data-theme="light"] {
+  --settings-bg: #f4f6f6;
+  --settings-surface: #ffffff;
+  --settings-surface-soft: #f7f9f8;
+  --settings-border: rgba(15, 23, 42, 0.1);
+  --settings-text: #17201f;
+  --settings-muted: #64706e;
+}
+
+#finmax-settings[data-compact="true"] .p-8 { padding: 1.25rem !important; }
+#finmax-settings[data-compact="true"] .p-6 { padding: 1rem !important; }
+#finmax-settings[data-compact="true"] .p-5 { padding: 0.875rem !important; }
+
+/* Calm down the previous glass/neon treatment while keeping every control intact. */
+#finmax-settings .ns-glass,
+#finmax-settings .ns-glass-active {
+  background: var(--settings-surface) !important;
+  border: 1px solid var(--settings-border) !important;
+  border-radius: 22px !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12) !important;
+  backdrop-filter: none !important;
+}
+
+#finmax-settings [style*="rgba(0,0,0"] {
+  background: var(--settings-surface-soft) !important;
+  border-color: var(--settings-border) !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+#finmax-settings[data-theme="light"] .text-white { color: var(--settings-text) !important; }
+#finmax-settings[data-theme="light"] .text-neutral-300,
+#finmax-settings[data-theme="light"] .text-neutral-400,
+#finmax-settings[data-theme="light"] .text-neutral-500 { color: var(--settings-muted) !important; }
+
+#finmax-settings[data-theme="light"] .ns-glass,
+#finmax-settings[data-theme="light"] .ns-glass-active {
+  background: var(--settings-surface) !important;
+  border-color: var(--settings-border) !important;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.045) !important;
+}
+
+#finmax-settings[data-theme="light"] [style*="rgba(255,255,255,0.04)"],
+#finmax-settings[data-theme="light"] [style*="rgba(255,255,255,0.05)"],
+#finmax-settings[data-theme="light"] [style*="rgba(255,255,255,0.03)"],
+#finmax-settings[data-theme="light"] [style*="rgba(255,255,255,0.025)"] {
+  background: var(--settings-surface-soft) !important;
+  border-color: var(--settings-border) !important;
+}
+
+#finmax-settings input,
+#finmax-settings select {
+  max-width: 100%;
+}
+
+#finmax-settings[data-theme="light"] input,
+#finmax-settings[data-theme="light"] select {
+  color: var(--settings-text) !important;
+  background-color: var(--settings-surface) !important;
+}
+
+#finmax-settings button { -webkit-tap-highlight-color: transparent; }
+#finmax-settings button:focus-visible,
+#finmax-settings input:focus-visible,
+#finmax-settings select:focus-visible {
+  outline: 2px solid #27b99a;
+  outline-offset: 2px;
+}
+
+@media (max-width: 1023px) {
+  #finmax-settings aside {
+    border-right: 0 !important;
+    border-bottom: 1px solid var(--settings-border) !important;
+  }
+  #finmax-settings aside nav {
+    gap: 0.5rem;
+    margin-right: -1rem;
+    padding-right: 1rem;
+    scrollbar-width: thin;
+  }
+  #finmax-settings aside nav button { min-height: 44px; }
+  #finmax-settings main { padding-top: 1.5rem; }
+}
+
+@media (max-width: 640px) {
+  #finmax-settings header { padding: 0.75rem 1rem !important; }
+  #finmax-settings header button { min-height: 42px; }
+  #finmax-settings main { padding: 1.25rem 1rem 2rem !important; }
+  #finmax-settings main > div:first-child { margin-bottom: 1.25rem !important; }
+  #finmax-settings main h2 { font-size: 1.65rem; line-height: 1.2; }
+  #finmax-settings .ns-glass,
+  #finmax-settings .ns-glass-active { border-radius: 18px !important; }
+  #finmax-settings [class*="max-w-3xl"] { width: 100%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #finmax-settings *,
+  #finmax-settings *::before,
+  #finmax-settings *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

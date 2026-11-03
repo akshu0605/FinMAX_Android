@@ -1,0 +1,17 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - npm ci
+  build:
+    commands:
+      - echo "Building static site - NO Supabase deployment"
+      - npm run build
+artifacts:
+  files:
+    - '**/*'
+  base-directory: dist
+  
+# CRITICAL: Do not deploy Supabase functions
+# This is a static-only site

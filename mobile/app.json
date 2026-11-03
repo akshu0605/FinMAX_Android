@@ -1,0 +1,22 @@
+{
+  "expo": {
+    "name": "FinMax Mobile",
+    "slug": "finmax-mobile",
+    "version": "1.0.0",
+    "scheme": "com.finmax.mobile",
+    "orientation": "portrait",
+    "splash": {
+      "backgroundColor": "#050607"
+    },
+    "userInterfaceStyle": "dark",
+    "plugins": [
+      "expo-notifications"
+    ],
+    "android": {
+      "package": "com.finmax.mobile",
+      "adaptiveIcon": {
+        "backgroundColor": "#050607"
+      }
+    }
+  }
+}

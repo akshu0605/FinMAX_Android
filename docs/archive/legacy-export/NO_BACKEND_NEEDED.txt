@@ -1,0 +1,17 @@
+╔═══════════════════════════════════════════════════════════════╗
+║                                                               ║
+║                   ✅  NO BACKEND NEEDED  ✅                  ║
+║                                                               ║
+║  This application is 100% client-side JavaScript              ║
+║                                                               ║
+║  ✓ No Supabase                                                ║
+║  ✓ No database                                               ║
+║  ✓ No server                                                 ║
+║  ✓ No API endpoints                                           ║
+║  ✓ No environment variables                                   ║
+║                                                               ║
+║  All data stored in browser localStorage                       
+║                                                               ║
+║  Deploy dist/ folder to ANY static hosting                    ║
+║                                                               ║
+╚═══════════════════════════════════════════════════════════════╝

@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: finmax
+    env: static
+    buildCommand: npm run build
+    staticPublishPath: ./dist
+    envVars:
+      - key: NODE_VERSION
+        value: 20
+      - key: SUPABASE_ENABLED
+        value: false

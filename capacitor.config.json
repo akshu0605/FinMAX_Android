@@ -1,0 +1,8 @@
+{
+  "appId": "com.finmax.mobile",
+  "appName": "FinMax",
+  "webDir": "dist",
+  "server": {
+    "androidScheme": "https"
+  }
+}

@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">FinMax</string>
+    <string name="title_activity_main">FinMax</string>
+    <string name="package_name">com.finmax.mobile</string>
+    <string name="custom_url_scheme">com.finmax.mobile</string>
+</resources>

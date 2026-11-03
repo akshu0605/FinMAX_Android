@@ -1,0 +1,11 @@
+# Supabase Configuration - DISABLED
+# This project does not use Supabase
+
+[functions]
+enabled = false
+
+[functions.make-server]
+enabled = false
+
+[functions.server]
+enabled = false

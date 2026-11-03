@@ -1,0 +1,32 @@
+@import './fonts.css';
+@import './tailwind.css';
+@import './theme.css';
+
+html,
+body,
+#root {
+  min-height: 100%;
+  width: 100%;
+  margin: 0;
+}
+
+html {
+  min-height: 100dvh;
+  overflow-x: hidden;
+}
+
+#root {
+  box-sizing: border-box;
+  min-height: 100dvh;
+  padding-top: var(--safe-area-inset-top, env(safe-area-inset-top, 0px));
+  padding-right: var(--safe-area-inset-right, env(safe-area-inset-right, 0px));
+  padding-left: var(--safe-area-inset-left, env(safe-area-inset-left, 0px));
+  overflow-x: clip;
+}
+
+@media (max-width: 640px) {
+  .finmax-contact .text-5xl { font-size: clamp(2.25rem, 10vw, 3rem); }
+  .finmax-contact .text-2xl { font-size: 1.25rem; }
+  .finmax-contact .max-w-7xl { padding-left: 1rem; padding-right: 1rem; }
+  .finmax-contact .p-8 { padding: 1.25rem; }
+}

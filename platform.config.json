@@ -1,0 +1,18 @@
+{
+  "platform": "figma-make",
+  "deployment": {
+    "skipSupabaseIntegration": true,
+    "skipEdgeFunctions": true,
+    "staticSiteOnly": true,
+    "ignoreProjectIntegrations": true
+  },
+  "supabase": {
+    "projectId": null,
+    "enabled": false,
+    "disconnect": true
+  },
+  "override": {
+    "forceStaticDeployment": true,
+    "ignoreAllIntegrations": true
+  }
+}

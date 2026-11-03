@@ -1,0 +1,15 @@
+{
+  "enabled": false,
+  "connected": false,
+  "projectId": null,
+  "deployEdgeFunctions": false,
+  "functions": {
+    "enabled": false,
+    "make-server": {
+      "enabled": false
+    },
+    "server": {
+      "enabled": false
+    }
+  }
+}
