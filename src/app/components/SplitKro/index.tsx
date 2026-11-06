@@ -9,7 +9,7 @@ import { NeonButton } from '../ui/NeonButton';
 
 // Design tokens
 const INDIGO = '#818CF8';
-const INDIGO_DARK = '#6366F1';
+const INDIGO_DARK = '#DDB96B';
 const headingFont: React.CSSProperties = { fontFamily: 'Inter, Geist, SF Pro, sans-serif' };
 const monoFont: React.CSSProperties = { fontFamily: 'JetBrains Mono, "Courier New", monospace' };
 

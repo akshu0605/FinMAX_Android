@@ -24,7 +24,7 @@ const GoogleIcon = () => (
   </svg>
 );
 
-const SOFT_CYAN = '#88f5f8'; // More soothing cyan
+const SOFT_CYAN = '#F4D995';
 const TEAL = SOFT_CYAN;
 const monoFont = { fontFamily: 'JetBrains Mono, "Courier New", monospace' };
 const headingFont = { fontFamily: 'Inter, Geist, SF Pro, sans-serif' };
@@ -107,13 +107,13 @@ export function AuthModal({ isOpen, onClose, onLogin, onSignup, initialMode = 's
           {/* Glow halos */}
           <motion.div
             className="absolute -top-6 -left-6 w-28 h-28 rounded-full pointer-events-none"
-            style={{ background: 'rgba(0,242,234,0.15)', filter: 'blur(30px)' }}
+            style={{ background: 'rgba(221,185,107,0.15)', filter: 'blur(30px)' }}
             animate={{ scale: [1, 1.2, 1], opacity: [0.4, 0.7, 0.4] }}
             transition={{ duration: 4, repeat: Infinity }}
           />
           <motion.div
             className="absolute -bottom-6 -right-6 w-36 h-36 rounded-full pointer-events-none"
-            style={{ background: 'rgba(0,242,234,0.1)', filter: 'blur(40px)' }}
+            style={{ background: 'rgba(221,185,107,0.1)', filter: 'blur(40px)' }}
             animate={{ scale: [1, 1.3, 1], opacity: [0.3, 0.55, 0.3] }}
             transition={{ duration: 5, repeat: Infinity, delay: 1 }}
           />
@@ -131,7 +131,7 @@ export function AuthModal({ isOpen, onClose, onLogin, onSignup, initialMode = 's
           >
             {/* Glass sheen */}
             <div className="absolute inset-0 pointer-events-none rounded-[40px]"
-              style={{ background: 'linear-gradient(135deg, rgba(255,255,255,0.09) 0%, rgba(0,242,234,0.04) 40%, transparent 70%)' }} />
+              style={{ background: 'linear-gradient(135deg, rgba(255,255,255,0.09) 0%, rgba(221,185,107,0.04) 40%, transparent 70%)' }} />
             {/* Subtle inner glow top */}
             <div
               className="absolute top-0 left-0 right-0 h-px"

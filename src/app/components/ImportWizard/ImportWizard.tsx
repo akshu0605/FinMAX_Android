@@ -34,7 +34,7 @@ import type {
   FinMaxCategory,
 } from '../../utils/statementParser/types';
 
-const TEAL = '#00f2ff';
+const TEAL = '#DDB96B';
 const monoFont: React.CSSProperties = { fontFamily: 'JetBrains Mono, "Courier New", monospace' };
 const headingFont: React.CSSProperties = { fontFamily: 'Inter, Geist, SF Pro, sans-serif' };
 
@@ -457,9 +457,9 @@ export function ImportWizard({
           className="w-full max-w-5xl rounded-[28px] relative overflow-hidden flex flex-col max-h-[92vh]"
           style={{
             background: 'rgba(9, 10, 14, 0.96)',
-            border: '1px solid rgba(0,242,234,0.22)',
+            border: '1px solid rgba(221,185,107,0.22)',
             boxShadow:
-              '0 30px 100px rgba(0,0,0,0.9), 0 0 60px rgba(0,242,234,0.08), inset 0 1px 0 rgba(255,255,255,0.08)',
+              '0 30px 100px rgba(0,0,0,0.9), 0 0 60px rgba(221,185,107,0.08), inset 0 1px 0 rgba(255,255,255,0.08)',
           }}
         >
           {/* Top Sheen */}
@@ -467,7 +467,7 @@ export function ImportWizard({
             className="absolute inset-x-0 top-0 h-px pointer-events-none"
             style={{
               background:
-                'linear-gradient(90deg, transparent, rgba(0,242,234,0.6), transparent)',
+                'linear-gradient(90deg, transparent, rgba(221,185,107,0.6), transparent)',
             }}
           />
 
@@ -477,8 +477,8 @@ export function ImportWizard({
               <div
                 className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0"
                 style={{
-                  background: 'rgba(0,242,234,0.12)',
-                  border: '1px solid rgba(0,242,234,0.3)',
+                  background: 'rgba(221,185,107,0.12)',
+                  border: '1px solid rgba(221,185,107,0.3)',
                 }}
               >
                 <Upload className="size-5" style={{ color: TEAL }} />
@@ -489,9 +489,9 @@ export function ImportWizard({
                   <span
                     className="text-[10px] px-2 py-0.5 rounded-full uppercase tracking-wider"
                     style={{
-                      background: 'rgba(0,242,234,0.15)',
+                      background: 'rgba(221,185,107,0.15)',
                       color: TEAL,
-                      border: '1px solid rgba(0,242,234,0.3)',
+                      border: '1px solid rgba(221,185,107,0.3)',
                       ...monoFont,
                     }}
                   >
@@ -524,10 +524,14 @@ export function ImportWizard({
                   onDragLeave={handleDragLeave}
                   onDrop={handleDrop}
                   onClick={() => fileInputRef.current?.click()}
+                  onKeyDown={event => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); fileInputRef.current?.click(); } }}
+                  role="button"
+                  tabIndex={0}
+                  aria-label="Choose a CSV or PDF financial statement to import"
                   className={`border-2 border-dashed rounded-3xl p-10 md:p-14 text-center cursor-pointer transition-all relative overflow-hidden group ${
                     isDragging
-                      ? 'border-cyan-400 bg-cyan-500/10 scale-[0.99]'
-                      : 'border-white/15 bg-white/[0.02] hover:border-cyan-400/40 hover:bg-white/[0.04]'
+                    ? 'border-[#DDB96B] bg-[#DDB96B]/10 scale-[0.99]'
+                      : 'border-white/15 bg-white/[0.02] hover:border-[#DDB96B]/40 hover:bg-white/[0.04]'
                   }`}
                 >
                   <input
@@ -541,14 +545,7 @@ export function ImportWizard({
                     }}
                   />
 
-                  <div className="w-16 h-16 mx-auto mb-4 rounded-2xl flex items-center justify-center transition-transform group-hover:scale-110"
-                    style={{
-                      background: 'rgba(0,242,234,0.12)',
-                      border: '1px solid rgba(0,242,234,0.3)',
-                    }}
-                  >
-                    <Upload className="size-8" style={{ color: TEAL }} />
-                  </div>
+                  <img className="import-drop-illustration" src="/finmax-receipt-scan.svg" alt="Receipt ready to import" />
 
                   <h3 className="text-lg font-bold text-white mb-2" style={headingFont}>
                     Drop your statement here, or <span style={{ color: TEAL }}>browse</span>
@@ -578,8 +575,8 @@ export function ImportWizard({
                 <div
                   className="p-4 rounded-2xl flex items-start gap-3"
                   style={{
-                    background: 'rgba(0,242,234,0.04)',
-                    border: '1px solid rgba(0,242,234,0.15)',
+                    background: 'rgba(221,185,107,0.04)',
+                    border: '1px solid rgba(221,185,107,0.15)',
                   }}
                 >
                   <ShieldCheck className="size-5 shrink-0 mt-0.5" style={{ color: TEAL }} />
@@ -596,8 +593,9 @@ export function ImportWizard({
 
             {/* Step: Parsing Animation */}
             {step === 'parsing' && (
-              <div className="py-20 text-center space-y-4">
-                <Loader2 className="size-10 animate-spin mx-auto" style={{ color: TEAL }} />
+              <div className="import-processing-state py-12 sm:py-16 text-center space-y-4">
+                <img src="/finmax-receipt-scan.svg" alt="" aria-hidden="true" />
+                <Loader2 className="size-7 animate-spin mx-auto" style={{ color: TEAL }} />
                 <h3 className="text-lg font-bold text-white" style={headingFont}>
                   Parsing Statement...
                 </h3>

@@ -82,21 +82,21 @@
 :root,
 .dark {
   /* Color Palette — deeper, richer blacks */
-  --ns-bg: #060807;
-  --ns-bg-elevated: #0E1210;
-  --ns-bg-overlay: #141917;
-  --ns-bg-card: #111514;
-  --ns-cyan: #00f2ff;
-  --ns-emerald: #10b981;
+  --ns-bg: #080909;
+  --ns-bg-elevated: #111212;
+  --ns-bg-overlay: #171818;
+  --ns-bg-card: #151515;
+  --ns-cyan: #DDB96B;
+  --ns-emerald: #53D69A;
   --ns-text-primary: #f0f2f1;
-  --ns-text-secondary: #8a918c;
-  --ns-text-muted: #4a524d;
+  --ns-text-secondary: #A6A6A6;
+  --ns-text-muted: #707070;
 
   /* Financial accent colors */
-  --ns-income: #2DD4A0;
-  --ns-expense: #F87171;
-  --ns-savings: #34D399;
-  --ns-rate: #60A5FA;
+  --ns-income: #53D69A;
+  --ns-expense: #F17878;
+  --ns-savings: #DDB96B;
+  --ns-rate: #DDB96B;
 
   /* Premium card surfaces */
   --ns-glass-bg: rgba(255, 255, 255, 0.025);
@@ -106,8 +106,8 @@
   --ns-glass-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
 
   /* Glow — restrained, use on key elements only */
-  --ns-glow-cyan: 0 0 16px rgba(0, 242, 255, 0.15);
-  --ns-glow-cyan-strong: 0 0 28px rgba(0, 242, 255, 0.3);
+  --ns-glow-cyan: 0 0 16px rgba(221, 185, 107, 0.12);
+  --ns-glow-cyan-strong: 0 0 28px rgba(221, 185, 107, 0.22);
   --ns-glow-emerald: 0 0 16px rgba(16, 185, 129, 0.2);
 
   /* Compact Spacing Scale */
@@ -296,7 +296,7 @@
   }
 
   ::selection {
-    background: rgba(0, 242, 255, 0.15);
+    background: rgba(221, 185, 107, 0.18);
     color: #ffffff;
   }
 }

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { lazy, Suspense, useEffect, useState } from 'react';
 import { MotionConfig, motion } from 'motion/react';
 import {
   User, Wallet, Bell, Palette, Shield, Database, CreditCard, ChevronRight,
@@ -14,15 +14,16 @@ import { exportAllUserDataToCsv, importUserDataFromCsv } from '../utils/csvDataS
 import { exportFinancialReportToPdf } from '../utils/pdfExport';
 import { api } from '../utils/api';
 import { supabase } from '../utils/supabase';
-import { ImportWizard } from './ImportWizard/ImportWizard';
 import { Sparkles } from 'lucide-react';
 import './Settings.css';
 
+const DeferredImportWizard = lazy(() => import('./ImportWizard/ImportWizard').then(({ ImportWizard }) => ({ default: ImportWizard })));
+
 // Design tokens
-const TEAL = '#00f2ff';
+const TEAL = '#DDB96B';
 const headingFont: React.CSSProperties = { fontFamily: 'Inter, Geist, SF Pro, sans-serif' };
 const monoFont: React.CSSProperties = { fontFamily: 'JetBrains Mono, "Courier New", monospace' };
-const ACCENT_COLORS = [TEAL, '#34D399', '#60A5FA', '#A78BFA', '#F87171', '#FBBF24'];
+const ACCENT_COLORS = [TEAL, '#53D69A', '#8C7BEA', '#F17878', '#E4A866', '#F2D58F'];
 
 function readPreference<T,>(key: string, fallback: T, userId: string): T {
   try {
@@ -1162,12 +1163,14 @@ export function Settings({ userId, userName, userEmail, onBack, onLogout, curren
       </div>
 
       {/* Upgraded Statement Import Wizard (CSV & PDF with password support) */}
-      <ImportWizard
+      <Suspense fallback={<div className="settings-import-loading" role="status">Loading statement tools…</div>}>
+      {isImportWizardOpen && <DeferredImportWizard
         isOpen={isImportWizardOpen}
         onClose={() => setIsImportWizardOpen(false)}
         onDataChanged={onDataChanged}
         currency={currency}
-      />
+      />}
+      </Suspense>
     </div>
     </MotionConfig>
   );

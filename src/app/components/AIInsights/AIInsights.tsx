@@ -5,7 +5,7 @@ import { InsightCard } from './InsightCard';
 import { InsightSummary } from './InsightSummary';
 
 // ─── Design tokens (matching Dashboard.tsx conventions exactly) ───────────────
-const TEAL = '#00F2EA';
+const TEAL = '#DDB96B';
 const headingFont: React.CSSProperties = { fontFamily: 'Inter, Geist, SF Pro, sans-serif' };
 const monoFont: React.CSSProperties = { fontFamily: 'JetBrains Mono, "Courier New", monospace' };
 
@@ -26,22 +26,12 @@ function EmptyState({ type }: { type: 'no_data' | 'insufficient' }) {
       className="flex flex-col items-center justify-center text-center"
       style={{ padding: '80px 32px' }}
     >
-      <div
-        style={{
-          width: '72px',
-          height: '72px',
-          borderRadius: '20px',
-          background: 'rgba(0,242,234,0.07)',
-          border: '1px solid rgba(0,242,234,0.15)',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          marginBottom: '24px',
-          fontSize: '28px',
-        }}
-      >
-        {type === 'no_data' ? '📊' : '🔍'}
-      </div>
+      <img
+        src={type === 'no_data' ? '/finmax-expenses-empty.svg' : '/finmax-insights.svg'}
+        alt=""
+        aria-hidden="true"
+        style={{ width: '172px', height: '126px', objectFit: 'contain', marginBottom: '14px' }}
+      />
       <h3 style={{ fontSize: '18px', fontWeight: 600, color: '#fff', marginBottom: '10px', ...headingFont }}>
         {type === 'no_data'
           ? 'No Transaction Data Yet'
@@ -156,23 +146,7 @@ export function AIInsights({ expenses, currencySymbol }: AIInsightsProps) {
             </p>
           </div>
 
-          {/* Method badge */}
-          <div
-            style={{
-              padding: '6px 12px',
-              background: 'rgba(255,255,255,0.04)',
-              border: '1px solid rgba(255,255,255,0.09)',
-              borderRadius: '8px',
-              flexShrink: 0,
-            }}
-          >
-            <div style={{ fontSize: '9px', color: 'rgba(255,255,255,0.3)', ...monoFont, letterSpacing: '0.06em', marginBottom: '2px' }}>
-              ENGINE
-            </div>
-            <div style={{ fontSize: '11px', color: 'rgba(255,255,255,0.55)', ...monoFont }}>
-              Statistical Analysis
-            </div>
-          </div>
+          <img className="finmax-insights-illustration" src="/finmax-insights.svg" alt="Abstract gold financial analytics illustration" />
         </div>
       </motion.div>
 

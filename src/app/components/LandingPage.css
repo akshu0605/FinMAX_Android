@@ -9,6 +9,71 @@
   color: #f2f5f3;
 }
 
+/* Shared champagne identity */
+#finmax-landing {
+  --landing-bg: #080909;
+  --landing-panel: #151515;
+  --landing-border: rgba(255,255,255,.1);
+  --landing-muted: #A6A6A6;
+  --landing-gold: #DDB96B;
+  background: #080909 !important;
+  color: #fff;
+}
+#finmax-landing .landing-nav { background: rgba(8,9,9,.94) !important; border-color: rgba(255,255,255,.08) !important; }
+#finmax-landing .landing-nav a:hover { color: #F4D995 !important; }
+#finmax-landing .landing-primary-button,
+#finmax-landing .landing-product-heading button {
+  background: linear-gradient(135deg,#F4D995,#DDB96B) !important;
+  color: #14110b !important;
+  box-shadow: 0 8px 24px rgba(221,185,107,.16) !important;
+}
+#finmax-landing .landing-hero-title span,
+#finmax-landing .landing-final-cta h2 span,
+#finmax-landing .landing-product-wordmark strong,
+#finmax-landing .landing-story-intro .landing-eyebrow,
+#finmax-landing .landing-eyebrow,
+#finmax-landing .landing-sticky-card-copy > p { color: #E4C77F !important; }
+#finmax-landing .landing-product-ui,
+#finmax-landing .landing-sticky-card,
+#finmax-landing .landing-sticky-card-1,
+#finmax-landing .landing-sticky-card-2,
+#finmax-landing .landing-sticky-card-3,
+#finmax-landing .landing-ai-panel,
+#finmax-landing .landing-ai-preview { background: #151515 !important; }
+#finmax-landing .landing-product-sidebar .is-active,
+#finmax-landing .landing-product-ai,
+#finmax-landing .landing-ai-preview-main {
+  color: #F4D995 !important;
+  background: rgba(221,185,107,.09) !important;
+}
+#finmax-landing .landing-sticky-card-visual div,
+#finmax-landing .landing-sticky-card-2 .landing-sticky-card-visual div,
+#finmax-landing .landing-ai-preview-chart i { background: #DDB96B !important; }
+#finmax-landing .landing-product-bars i { background: linear-gradient(180deg,#F4D995,#9C7C3C) !important; }
+#finmax-landing .landing-ai-preview-foot strong { color: #F4D995 !important; }
+#finmax-landing .landing-split-section .border-cyan-500\/50 { border-color: rgba(221,185,107,.42) !important; }
+#finmax-landing button:focus-visible,
+#finmax-landing a:focus-visible { outline-color: #F4D995 !important; }
+#finmax-landing .landing-hero { padding-top: clamp(4.5rem, 9vw, 7rem) !important; }
+#finmax-landing .landing-product-date { letter-spacing: .02em; }
+#finmax-landing .landing-hero-metrics { bottom: 1.5rem !important; }
+#finmax-landing .landing-hero-stat-inner { background: rgba(12,12,12,.92) !important; }
+
+@media (max-width: 767px) {
+  #finmax-landing .landing-hero { padding-top: 3.5rem !important; }
+  #finmax-landing .landing-hero-visual { max-height: none !important; }
+  #finmax-landing .landing-product-reveal,
+  #finmax-landing .landing-product-ui { min-height: 460px; }
+  #finmax-landing .landing-product-stats { grid-template-columns: 1fr; }
+  #finmax-landing .landing-product-stats > div { display: grid; grid-template-columns: 1fr auto; align-items: center; }
+  #finmax-landing .landing-product-stats small { grid-column: 2; grid-row: 1 / span 2; text-align: right; }
+  #finmax-landing .landing-product-stats strong { margin: .1rem 0; }
+  #finmax-landing .landing-product-chart { height: 100px; }
+  #finmax-landing .landing-product-bars { height: 46px; }
+  #finmax-landing .landing-hero-metrics { position: static !important; display: grid !important; grid-template-columns: 1fr !important; padding: .75rem; background: #101010; }
+  #finmax-landing .landing-hero-stat-inner { flex-direction: row; align-items: center; justify-content: space-between; }
+}
+
 #finmax-landing .landing-nav {
   background: rgba(12, 16, 15, 0.92) !important;
   border-bottom: 1px solid var(--landing-border) !important;
@@ -257,4 +322,51 @@
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+#finmax-landing .flex.items-center.gap-2 > div svg,
+#finmax-landing .flex.items-center.gap-2 > span > span:first-child { color: #DDB96B !important; }
+#finmax-landing [class*="gap-2.5"] > div svg,
+#finmax-landing [class*="gap-2.5"] > span > span:first-child { color: #DDB96B !important; }
+
+/* Shared champagne identity, applied after the legacy landing rules. */
+#finmax-landing { --landing-bg:#080909; --landing-panel:#151515; --landing-border:rgba(255,255,255,.1); --landing-gold:#DDB96B; background:#080909 !important; color:#fff; }
+#finmax-landing .landing-nav { background:rgba(8,9,9,.94) !important; border-color:rgba(255,255,255,.08) !important; }
+#finmax-landing .landing-primary-button,
+#finmax-landing .landing-product-heading button { background:linear-gradient(135deg,#F4D995,#DDB96B) !important; color:#14110b !important; box-shadow:0 8px 24px rgba(221,185,107,.16) !important; }
+#finmax-landing .landing-hero-title span,
+#finmax-landing .landing-final-cta h2 span,
+#finmax-landing .landing-product-wordmark strong,
+#finmax-landing .landing-story-intro .landing-eyebrow,
+#finmax-landing .landing-eyebrow,
+#finmax-landing .landing-sticky-card-copy > p { color:#E4C77F !important; }
+#finmax-landing .landing-product-ui,
+#finmax-landing .landing-sticky-card,
+#finmax-landing .landing-sticky-card-1,
+#finmax-landing .landing-sticky-card-2,
+#finmax-landing .landing-sticky-card-3,
+#finmax-landing .landing-ai-panel,
+#finmax-landing .landing-ai-preview { background:#151515 !important; }
+#finmax-landing .landing-product-sidebar .is-active,
+#finmax-landing .landing-ai-preview-main { color:#F4D995 !important; background:rgba(221,185,107,.09) !important; }
+#finmax-landing .landing-sticky-card-visual div,
+#finmax-landing .landing-sticky-card-2 .landing-sticky-card-visual div,
+#finmax-landing .landing-ai-preview-chart i { background:#DDB96B !important; }
+#finmax-landing .landing-product-bars i { background:linear-gradient(180deg,#F4D995,#9C7C3C) !important; }
+#finmax-landing .flex.items-center.gap-2 > div svg,
+#finmax-landing .flex.items-center.gap-2 > span > span:first-child { color:#DDB96B !important; }
+#finmax-landing .landing-ai-preview-foot strong { color:#F4D995 !important; }
+#finmax-landing button:focus-visible,#finmax-landing a:focus-visible { outline-color:#F4D995 !important; }
+#finmax-landing .landing-hero-metrics { bottom:1.5rem !important; }
+#finmax-landing .landing-hero-stat-inner { background:rgba(12,12,12,.92) !important; }
+@media (max-width:767px) {
+  #finmax-landing .landing-product-reveal,#finmax-landing .landing-product-ui { min-height:460px; }
+  #finmax-landing .landing-product-stats { grid-template-columns:1fr; }
+  #finmax-landing .landing-product-stats > div { display:grid; grid-template-columns:1fr auto; align-items:center; }
+  #finmax-landing .landing-product-stats small { grid-column:2; grid-row:1 / span 2; text-align:right; }
+  #finmax-landing .landing-product-stats strong { margin:.1rem 0; }
+  #finmax-landing .landing-product-chart { height:100px; }
+  #finmax-landing .landing-product-bars { height:46px; }
+  #finmax-landing .landing-hero-metrics { position:static !important; display:grid !important; grid-template-columns:1fr !important; padding:.75rem; background:#101010; }
+  #finmax-landing .landing-hero-stat-inner { flex-direction:row; align-items:center; justify-content:space-between; }
 }

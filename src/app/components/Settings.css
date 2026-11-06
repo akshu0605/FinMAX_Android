@@ -11,6 +11,49 @@
   transition: background-color 180ms ease, color 180ms ease;
 }
 
+/* Match the main dashboard's dark champagne surfaces. */
+#finmax-settings {
+  --settings-bg: #080909;
+  --settings-surface: #151515;
+  --settings-surface-soft: #111212;
+  --settings-border: rgba(255,255,255,.1);
+  --settings-muted: #A6A6A6;
+  color-scheme: dark;
+  background: #080909 !important;
+}
+#finmax-settings .ns-glass,
+#finmax-settings .ns-glass-active { border-radius: 18px !important; }
+#finmax-settings aside { background: #111212 !important; border-color: var(--settings-border) !important; }
+#finmax-settings button:focus-visible,
+#finmax-settings input:focus-visible,
+#finmax-settings select:focus-visible { outline-color: #F4D995 !important; }
+#finmax-settings input:focus,
+#finmax-settings select:focus { border-color: #DDB96B !important; }
+#finmax-settings [style*="rgba(0,242,234"],
+#finmax-settings [style*="rgba(0, 242, 234"],
+#finmax-settings [style*="rgba(0,242,255"],
+#finmax-settings [style*="rgba(0, 242, 255"] { --finmax-accent: #DDB96B !important; }
+#finmax-settings[data-theme="light"] {
+  --settings-bg: #080909;
+  --settings-surface: #151515;
+  --settings-surface-soft: #111212;
+  --settings-border: rgba(255,255,255,.1);
+  --settings-text: #fff;
+  --settings-muted: #A6A6A6;
+  color-scheme: dark;
+}
+#finmax-settings[data-theme="light"] .text-white { color: #fff !important; }
+#finmax-settings[data-theme="light"] .text-neutral-300,
+#finmax-settings[data-theme="light"] .text-neutral-400,
+#finmax-settings[data-theme="light"] .text-neutral-500 { color: #A6A6A6 !important; }
+
+@media (max-width: 640px) {
+  #finmax-settings { min-height: 100dvh; padding-bottom: env(safe-area-inset-bottom, 0px); }
+  #finmax-settings header { padding-top: max(.75rem, env(safe-area-inset-top, 0px)) !important; }
+  #finmax-settings main { padding-bottom: max(1.5rem, env(safe-area-inset-bottom, 0px)) !important; }
+  #finmax-settings button, #finmax-settings [role="button"] { min-height: 42px; }
+}
+
 #finmax-settings[data-theme="light"] {
   --settings-bg: #f4f6f6;
   --settings-surface: #ffffff;
@@ -116,4 +159,31 @@
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+/* Settings keep the same dark palette even when the saved appearance option is selected. */
+#finmax-settings { --settings-bg:#080909; --settings-surface:#151515; --settings-surface-soft:#111212; --settings-border:rgba(255,255,255,.1); --settings-text:#fff; --settings-muted:#A6A6A6; background:#080909 !important; color-scheme:dark; }
+#finmax-settings[data-theme="light"] { --settings-bg:#080909; --settings-surface:#151515; --settings-surface-soft:#111212; --settings-border:rgba(255,255,255,.1); --settings-text:#fff; --settings-muted:#A6A6A6; color-scheme:dark; }
+#finmax-settings[data-theme="light"] .text-white { color:#fff !important; }
+#finmax-settings[data-theme="light"] .text-neutral-300,
+#finmax-settings[data-theme="light"] .text-neutral-400,
+#finmax-settings[data-theme="light"] .text-neutral-500 { color:#A6A6A6 !important; }
+#finmax-settings button:focus-visible,#finmax-settings input:focus-visible,#finmax-settings select:focus-visible { outline-color:#F4D995 !important; }
+#finmax-settings input:focus,#finmax-settings select:focus { border-color:#DDB96B !important; }
+@media (max-width:640px) {
+  #finmax-settings { min-height:100dvh; padding-bottom:env(safe-area-inset-bottom,0px); }
+  #finmax-settings header { padding-top:max(.75rem,env(safe-area-inset-top,0px)) !important; }
+  #finmax-settings main { padding-bottom:max(1.5rem,env(safe-area-inset-bottom,0px)) !important; }
+}
+#finmax-settings .settings-import-loading {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #F4D995;
+  background: rgba(8,9,9,.92);
+  backdrop-filter: blur(10px);
+  font-size: .9rem;
 }

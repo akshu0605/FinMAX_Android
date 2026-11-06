@@ -4,7 +4,7 @@ import { Table, ArrowRight, X, Check, AlertCircle } from 'lucide-react';
 import { NeonButton } from '../ui/NeonButton';
 import type { ColumnMapping } from '../../utils/statementParser/types';
 
-const TEAL = '#00f2ff';
+const TEAL = '#DDB96B';
 const monoFont: React.CSSProperties = { fontFamily: 'JetBrains Mono, "Courier New", monospace' };
 const headingFont: React.CSSProperties = { fontFamily: 'Inter, Geist, SF Pro, sans-serif' };
 
@@ -13,7 +13,7 @@ const selectStyle: React.CSSProperties = {
   padding: '10px 14px',
   background: 'rgba(255,255,255,0.06)',
   backdropFilter: 'blur(12px)',
-  border: '1px solid rgba(0,242,234,0.22)',
+  border: '1px solid rgba(221,185,107,0.22)',
   borderRadius: '10px',
   color: '#fff',
   outline: 'none',
@@ -99,8 +99,8 @@ export function ColumnMapper({
       className="p-6 md:p-8 rounded-[24px] relative overflow-hidden"
       style={{
         background: 'rgba(10, 10, 12, 0.95)',
-        border: '1px solid rgba(0,242,234,0.25)',
-        boxShadow: '0 20px 60px rgba(0,0,0,0.8), 0 0 40px rgba(0,242,234,0.06)',
+        border: '1px solid rgba(221,185,107,0.25)',
+        boxShadow: '0 20px 60px rgba(0,0,0,0.8), 0 0 40px rgba(221,185,107,0.06)',
       }}
     >
       <div className="flex items-center justify-between pb-5 border-b border-white/10 mb-6">
@@ -108,8 +108,8 @@ export function ColumnMapper({
           <div
             className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0"
             style={{
-              background: 'rgba(0,242,234,0.12)',
-              border: '1px solid rgba(0,242,234,0.3)',
+              background: 'rgba(221,185,107,0.12)',
+              border: '1px solid rgba(221,185,107,0.3)',
             }}
           >
             <Table className="size-5" style={{ color: TEAL }} />

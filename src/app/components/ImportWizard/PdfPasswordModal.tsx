@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Lock, Eye, EyeOff, X, FileKey } from 'lucide-react';
 import { NeonButton } from '../ui/NeonButton';
 
-const TEAL = '#00f2ff';
+const TEAL = '#DDB96B';
 const monoFont: React.CSSProperties = { fontFamily: 'JetBrains Mono, "Courier New", monospace' };
 const headingFont: React.CSSProperties = { fontFamily: 'Inter, Geist, SF Pro, sans-serif' };
 
@@ -12,7 +12,7 @@ const inputStyle: React.CSSProperties = {
   padding: '12px 16px',
   background: 'rgba(255,255,255,0.05)',
   backdropFilter: 'blur(12px)',
-  border: '1px solid rgba(0,242,234,0.18)',
+  border: '1px solid rgba(221,185,107,0.18)',
   borderRadius: '12px',
   color: '#fff',
   outline: 'none',
@@ -92,8 +92,8 @@ export function PdfPasswordModal({
             className="w-full max-w-md relative overflow-hidden rounded-[28px]"
             style={{
               background: 'rgba(8,8,8,0.92)',
-              border: '1px solid rgba(0,242,234,0.22)',
-              boxShadow: '0 40px 100px rgba(0,0,0,0.9), 0 0 60px rgba(0,242,234,0.08)',
+              border: '1px solid rgba(221,185,107,0.22)',
+              boxShadow: '0 40px 100px rgba(0,0,0,0.9), 0 0 60px rgba(221,185,107,0.08)',
               backdropFilter: 'blur(32px)',
             }}
             initial={{ opacity: 0, scale: 0.92, y: 16 }}
@@ -103,14 +103,14 @@ export function PdfPasswordModal({
           >
             {/* Top gradient line */}
             <div className="absolute top-0 left-0 right-0 h-px"
-              style={{ background: 'linear-gradient(90deg, transparent, rgba(0,242,234,0.6), transparent)' }} />
+              style={{ background: 'linear-gradient(90deg, transparent, rgba(221,185,107,0.6), transparent)' }} />
 
             <div className="p-8">
               {/* Header */}
               <div className="flex items-start justify-between mb-6">
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
-                    style={{ background: 'rgba(0,242,234,0.08)', border: '1px solid rgba(0,242,234,0.2)' }}>
+                    style={{ background: 'rgba(221,185,107,0.08)', border: '1px solid rgba(221,185,107,0.2)' }}>
                     <FileKey className="size-6" style={{ color: TEAL }} />
                   </div>
                   <div>
@@ -184,10 +184,10 @@ export function PdfPasswordModal({
                       }}
                       onFocus={(e) => {
                         e.currentTarget.style.borderColor = TEAL;
-                        e.currentTarget.style.boxShadow = '0 0 16px rgba(0,242,234,0.15), inset 0 1px 0 rgba(255,255,255,0.07)';
+                        e.currentTarget.style.boxShadow = '0 0 16px rgba(221,185,107,0.15), inset 0 1px 0 rgba(255,255,255,0.07)';
                       }}
                       onBlur={(e) => {
-                        e.currentTarget.style.borderColor = 'rgba(0,242,234,0.18)';
+                        e.currentTarget.style.borderColor = 'rgba(221,185,107,0.18)';
                         e.currentTarget.style.boxShadow = 'inset 0 1px 0 rgba(255,255,255,0.07)';
                       }}
                     />

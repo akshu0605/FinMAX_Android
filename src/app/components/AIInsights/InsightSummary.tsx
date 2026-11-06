@@ -2,7 +2,7 @@ import type { AIInsightsResult } from '../../../ai-insights/types';
 import { motion } from 'motion/react';
 import { TrendingUp, TrendingDown, Minus } from 'lucide-react';
 
-const TEAL = '#00F2EA';
+const TEAL = '#DDB96B';
 const headingFont: React.CSSProperties = { fontFamily: 'Inter, Geist, SF Pro, sans-serif' };
 const monoFont: React.CSSProperties = { fontFamily: 'JetBrains Mono, "Courier New", monospace' };
 

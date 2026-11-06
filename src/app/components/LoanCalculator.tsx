@@ -6,7 +6,7 @@ import { GlassCard } from './ui/GlassCard';
 import { NeonButton } from './ui/NeonButton';
 
 // Design tokens
-const TEAL = '#00F2EA';
+const TEAL = '#DDB96B';
 const headingFont: React.CSSProperties = { fontFamily: 'Inter, Geist, SF Pro, sans-serif' };
 const monoFont: React.CSSProperties = { fontFamily: 'JetBrains Mono, "Courier New", monospace' };
 
@@ -50,7 +50,7 @@ function ModalStars({ count = 120 }: { count?: number }) {
         ctx.beginPath();
         ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
         ctx.fillStyle = s.teal
-          ? `rgba(0,242,234,${s.alpha * 0.7})`
+          ? `rgba(221,185,107,${s.alpha * 0.7})`
           : `rgba(255,255,255,${s.alpha * 0.55})`;
         ctx.fill();
       });
@@ -74,17 +74,17 @@ const inputStyle: React.CSSProperties = {
   width: '100%', padding: '12px 16px',
   background: 'rgba(255,255,255,0.055)',
   backdropFilter: 'blur(12px)', WebkitBackdropFilter: 'blur(12px)',
-  border: '1px solid rgba(0,242,234,0.18)',
+  border: '1px solid rgba(221,185,107,0.18)',
   borderRadius: '12px', color: '#fff', outline: 'none', ...monoFont,
   boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.07)',
   transition: 'all 0.2s cubic-bezier(0.4, 0, 0.2, 1)',
 };
 const focusInput = (e: React.FocusEvent<HTMLInputElement>) => {
   e.currentTarget.style.borderColor = TEAL;
-  e.currentTarget.style.boxShadow = `0 0 16px rgba(0,242,234,0.25), inset 0 1px 0 rgba(255,255,255,0.07)`;
+  e.currentTarget.style.boxShadow = `0 0 16px rgba(221,185,107,0.25), inset 0 1px 0 rgba(255,255,255,0.07)`;
 };
 const blurInput = (e: React.FocusEvent<HTMLInputElement>) => {
-  e.currentTarget.style.borderColor = 'rgba(0,242,234,0.18)';
+  e.currentTarget.style.borderColor = 'rgba(221,185,107,0.18)';
   e.currentTarget.style.boxShadow = 'inset 0 1px 0 rgba(255,255,255,0.07)';
 };
 
@@ -155,25 +155,25 @@ export function LoanCalculator({ isOpen, onClose, currencySymbol }: LoanCalculat
     { name: 'Principal', value: results.principal },
     { name: 'Interest', value: results.totalInterest },
   ];
-  const CHART_COLORS = [TEAL, '#005d5b'];
+  const CHART_COLORS = [TEAL, '#8B713B'];
 
   if (!isOpen) return null;
 
   const toggleBtnOn: React.CSSProperties = {
     background: TEAL, color: '#000', fontWeight: 700, borderRadius: '8px',
     padding: '7px 16px', ...monoFont,
-    boxShadow: '0 0 12px rgba(0,242,234,0.35), inset 0 1px 0 rgba(255,255,255,0.3)',
+    boxShadow: '0 0 12px rgba(221,185,107,0.35), inset 0 1px 0 rgba(255,255,255,0.3)',
   };
   const toggleBtnOff: React.CSSProperties = { color: '#A1A1A1', borderRadius: '8px', padding: '7px 16px', ...monoFont };
 
   const interestBtnOn: React.CSSProperties = {
     background: TEAL, color: '#000', fontWeight: 700, ...headingFont,
-    boxShadow: '0 0 14px rgba(0,242,234,0.3), inset 0 1px 0 rgba(255,255,255,0.3)',
+    boxShadow: '0 0 14px rgba(221,185,107,0.3), inset 0 1px 0 rgba(255,255,255,0.3)',
     borderRadius: '10px', padding: '10px',
   };
   const interestBtnOff: React.CSSProperties = {
     background: 'rgba(255,255,255,0.05)', color: '#A1A1A1', ...monoFont,
-    border: '1px solid rgba(0,242,234,0.14)', backdropFilter: 'blur(12px)',
+    border: '1px solid rgba(221,185,107,0.14)', backdropFilter: 'blur(12px)',
     borderRadius: '10px', padding: '10px',
   };
 
@@ -184,7 +184,7 @@ export function LoanCalculator({ isOpen, onClose, currencySymbol }: LoanCalculat
         <ModalStars count={140} />
         {/* Teal radial glow */}
         <div className="absolute inset-0 pointer-events-none"
-          style={{ background: 'radial-gradient(ellipse 70% 50% at 50% 50%, rgba(0,242,234,0.04) 0%, transparent 70%)' }} />
+          style={{ background: 'radial-gradient(ellipse 70% 50% at 50% 50%, rgba(221,185,107,0.04) 0%, transparent 70%)' }} />
         {/* Dimmer overlay */}
         <motion.div className="absolute inset-0"
           style={{ background: 'rgba(0,0,0,0.82)' }}
@@ -204,8 +204,8 @@ export function LoanCalculator({ isOpen, onClose, currencySymbol }: LoanCalculat
           {/* Floating teal orb decorations */}
           <motion.div className="absolute -top-8 -right-8 w-16 h-16 rounded-full flex items-center justify-center z-10"
             style={{
-              background: 'rgba(0,242,234,0.12)', border: '1.5px solid rgba(0,242,234,0.45)',
-              backdropFilter: 'blur(12px)', boxShadow: '0 0 32px rgba(0,242,234,0.35)',
+              background: 'rgba(221,185,107,0.12)', border: '1.5px solid rgba(221,185,107,0.45)',
+              backdropFilter: 'blur(12px)', boxShadow: '0 0 32px rgba(221,185,107,0.35)',
               color: TEAL, fontWeight: 800, fontSize: '1.25rem', ...monoFont,
             }}
             animate={{ y: [0, -16, 0], rotate: [0, 12, 0] }}
@@ -214,8 +214,8 @@ export function LoanCalculator({ isOpen, onClose, currencySymbol }: LoanCalculat
 
           <motion.div className="absolute -bottom-6 -left-6 w-12 h-12 rounded-full flex items-center justify-center z-10"
             style={{
-              background: 'rgba(0,242,234,0.08)', border: '1.5px solid rgba(0,242,234,0.35)',
-              backdropFilter: 'blur(12px)', boxShadow: '0 0 22px rgba(0,242,234,0.25)',
+              background: 'rgba(221,185,107,0.08)', border: '1.5px solid rgba(221,185,107,0.35)',
+              backdropFilter: 'blur(12px)', boxShadow: '0 0 22px rgba(221,185,107,0.25)',
               color: TEAL, fontWeight: 800, fontSize: '1rem', ...monoFont,
             }}
             animate={{ y: [0, 12, 0], rotate: [0, -12, 0] }}
@@ -224,8 +224,8 @@ export function LoanCalculator({ isOpen, onClose, currencySymbol }: LoanCalculat
 
           {/* Pulsing corner glow */}
           <motion.div className="absolute -inset-1 rounded-3xl pointer-events-none"
-            style={{ background: 'transparent', boxShadow: '0 0 60px rgba(0,242,234,0.08)' }}
-            animate={{ boxShadow: ['0 0 40px rgba(0,242,234,0.06)', '0 0 80px rgba(0,242,234,0.13)', '0 0 40px rgba(0,242,234,0.06)'] }}
+            style={{ background: 'transparent', boxShadow: '0 0 60px rgba(221,185,107,0.08)' }}
+            animate={{ boxShadow: ['0 0 40px rgba(221,185,107,0.06)', '0 0 80px rgba(221,185,107,0.13)', '0 0 40px rgba(221,185,107,0.06)'] }}
             transition={{ duration: 4, repeat: Infinity }}
           />
 
@@ -234,22 +234,22 @@ export function LoanCalculator({ isOpen, onClose, currencySymbol }: LoanCalculat
             className="w-full relative"
             spacing="none"
             style={{
-              boxShadow: '0 32px 90px rgba(0,0,0,0.9), 0 0 60px rgba(0,242,234,0.07)',
+              boxShadow: '0 32px 90px rgba(0,0,0,0.9), 0 0 60px rgba(221,185,107,0.07)',
             }}
           >
             <div className="relative">
               {/* Glass sheen */}
               <div className="absolute inset-0 pointer-events-none"
-                style={{ background: 'linear-gradient(135deg, rgba(255,255,255,0.09) 0%, rgba(0,242,234,0.03) 40%, transparent 70%)' }} />
+                style={{ background: 'linear-gradient(135deg, rgba(255,255,255,0.09) 0%, rgba(221,185,107,0.03) 40%, transparent 70%)' }} />
               {/* Top teal glow line */}
               <div className="absolute top-0 left-0 right-0 h-px"
-                style={{ background: 'linear-gradient(90deg, transparent 5%, rgba(0,242,234,0.7) 50%, transparent 95%)' }} />
+                style={{ background: 'linear-gradient(90deg, transparent 5%, rgba(221,185,107,0.7) 50%, transparent 95%)' }} />
 
               {/* Header */}
-              <div className="relative px-8 py-6" style={{ borderBottom: '1px solid rgba(0,242,234,0.1)' }}>
+              <div className="relative px-8 py-6" style={{ borderBottom: '1px solid rgba(221,185,107,0.1)' }}>
                 {/* Subtle scan-line shimmer on header */}
                 <motion.div className="absolute inset-0 pointer-events-none"
-                  style={{ background: 'linear-gradient(90deg, transparent 0%, rgba(0,242,234,0.04) 50%, transparent 100%)', backgroundSize: '200% 100%' }}
+                  style={{ background: 'linear-gradient(90deg, transparent 0%, rgba(221,185,107,0.04) 50%, transparent 100%)', backgroundSize: '200% 100%' }}
                   animate={{ backgroundPosition: ['-100% 0', '200% 0'] }}
                   transition={{ duration: 4, repeat: Infinity, ease: 'linear' }}
                 />
@@ -263,13 +263,13 @@ export function LoanCalculator({ isOpen, onClose, currencySymbol }: LoanCalculat
                 <div className="flex items-center gap-4 relative z-10">
                   <motion.div className="w-14 h-14 rounded-xl flex items-center justify-center"
                     style={{
-                      background: 'rgba(0,242,234,0.1)', border: '1px solid rgba(0,242,234,0.3)',
-                      boxShadow: '0 0 28px rgba(0,242,234,0.18), inset 0 1px 0 rgba(0,242,234,0.25)',
+                      background: 'rgba(221,185,107,0.1)', border: '1px solid rgba(221,185,107,0.3)',
+                      boxShadow: '0 0 28px rgba(221,185,107,0.18), inset 0 1px 0 rgba(221,185,107,0.25)',
                     }}
-                    animate={{ boxShadow: ['0 0 18px rgba(0,242,234,0.15)', '0 0 36px rgba(0,242,234,0.3)', '0 0 18px rgba(0,242,234,0.15)'] }}
+                    animate={{ boxShadow: ['0 0 18px rgba(221,185,107,0.15)', '0 0 36px rgba(221,185,107,0.3)', '0 0 18px rgba(221,185,107,0.15)'] }}
                     transition={{ duration: 3, repeat: Infinity }}
                   >
-                    <Calculator className="size-7" style={{ color: TEAL, filter: 'drop-shadow(0 0 10px #00F2EA)' }} />
+                    <Calculator className="size-7" style={{ color: TEAL, filter: 'drop-shadow(0 0 10px rgba(221,185,107,.22))' }} />
                   </motion.div>
                   <div>
                     <div className="text-xs mb-1 tracking-widest uppercase" style={{ color: TEAL, ...monoFont, letterSpacing: '0.15em' }}>Financial Tools</div>
@@ -320,7 +320,7 @@ export function LoanCalculator({ isOpen, onClose, currencySymbol }: LoanCalculat
                           style={{ ...inputStyle }} placeholder="12"
                           onFocus={focusInput} onBlur={blurInput} />
                         <div className="flex items-center rounded-xl p-1 shrink-0"
-                          style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(0,242,234,0.15)', backdropFilter: 'blur(12px)' }}>
+                          style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(221,185,107,0.15)', backdropFilter: 'blur(12px)' }}>
                           <button onClick={() => setDurationType('months')} style={durationType === 'months' ? toggleBtnOn : toggleBtnOff}>Mo</button>
                           <button onClick={() => setDurationType('years')} style={durationType === 'years' ? toggleBtnOn : toggleBtnOff}>Yr</button>
                         </div>
@@ -352,7 +352,7 @@ export function LoanCalculator({ isOpen, onClose, currencySymbol }: LoanCalculat
                         { label: 'Period', value: `${duration} ${durationType}` },
                       ].map(({ label, value }) => (
                         <div key={label} className="p-3 rounded-xl text-center relative overflow-hidden"
-                          style={{ background: 'rgba(0,242,234,0.05)', border: '1px solid rgba(0,242,234,0.12)', backdropFilter: 'blur(10px)' }}>
+                          style={{ background: 'rgba(221,185,107,0.05)', border: '1px solid rgba(221,185,107,0.12)', backdropFilter: 'blur(10px)' }}>
                           <div className="text-xs mb-1" style={{ color: '#A1A1A1', ...monoFont }}>{label}</div>
                           <div className="text-sm font-bold" style={{ color: TEAL, ...monoFont }}>{value}</div>
                         </div>
@@ -361,7 +361,7 @@ export function LoanCalculator({ isOpen, onClose, currencySymbol }: LoanCalculat
 
                     {/* Actions */}
                     <div className="flex gap-3 pt-2">
-                      <NeonButton onClick={calculateLoan} className="flex-1 py-3.5 shadow-[0_0_22px_rgba(0,242,234,0.38)]"
+                      <NeonButton onClick={calculateLoan} className="flex-1 py-3.5 shadow-[0_0_22px_rgba(221,185,107,0.38)]"
                         style={{ background: TEAL, color: '#000' }}>
                         <Calculator className="size-5" /> Calculate
                       </NeonButton>
@@ -379,19 +379,19 @@ export function LoanCalculator({ isOpen, onClose, currencySymbol }: LoanCalculat
                           animate={{ rotate: [0, 360] }}
                           transition={{ duration: 22, repeat: Infinity, ease: 'linear' }}
                         >
-                          <TrendingUp className="size-24" style={{ color: 'rgba(0,242,234,0.18)', filter: 'drop-shadow(0 0 20px rgba(0,242,234,0.15))' }} />
+                          <TrendingUp className="size-24" style={{ color: 'rgba(221,185,107,0.18)', filter: 'drop-shadow(0 0 20px rgba(221,185,107,0.15))' }} />
                         </motion.div>
                         {/* Pulse rings */}
                         <div className="relative flex items-center justify-center">
                           {[0, 1, 2].map((i) => (
                             <motion.div key={i} className="absolute rounded-full"
-                              style={{ width: 40 + i * 30, height: 40 + i * 30, border: '1px solid rgba(0,242,234,0.15)' }}
+                              style={{ width: 40 + i * 30, height: 40 + i * 30, border: '1px solid rgba(221,185,107,0.15)' }}
                               animate={{ scale: [1, 1.4, 1], opacity: [0.4, 0, 0.4] }}
                               transition={{ duration: 2.5, repeat: Infinity, delay: i * 0.6 }}
                             />
                           ))}
                           <div className="w-10 h-10 rounded-full flex items-center justify-center"
-                            style={{ background: 'rgba(0,242,234,0.1)', border: '1px solid rgba(0,242,234,0.3)' }}>
+                            style={{ background: 'rgba(221,185,107,0.1)', border: '1px solid rgba(221,185,107,0.3)' }}>
                             <Calculator className="size-5" style={{ color: TEAL }} />
                           </div>
                         </div>
@@ -437,7 +437,7 @@ export function LoanCalculator({ isOpen, onClose, currencySymbol }: LoanCalculat
 
                         {/* Pie chart */}
                         <motion.div className="p-5 rounded-xl relative overflow-hidden"
-                          style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(0,242,234,0.1)', backdropFilter: 'blur(12px)', boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.06)' }}
+                          style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(221,185,107,0.1)', backdropFilter: 'blur(12px)', boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.06)' }}
                           initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.35 }}
                         >
                           <div className="absolute inset-0 pointer-events-none"
@@ -450,7 +450,7 @@ export function LoanCalculator({ isOpen, onClose, currencySymbol }: LoanCalculat
                                   {chartData.map((_, i) => <Cell key={i} fill={CHART_COLORS[i % CHART_COLORS.length]} />)}
                                 </Pie>
                                 <Tooltip
-                                  contentStyle={{ backgroundColor: 'rgba(0,0,0,0.88)', backdropFilter: 'blur(20px)', border: '1px solid rgba(0,242,234,0.25)', borderRadius: '10px', color: '#fff', ...monoFont }}
+                                  contentStyle={{ backgroundColor: 'rgba(0,0,0,0.88)', backdropFilter: 'blur(20px)', border: '1px solid rgba(221,185,107,0.25)', borderRadius: '10px', color: '#fff', ...monoFont }}
                                   formatter={(v: number) => `${currencySymbol}${v.toLocaleString()}`}
                                 />
                                 <Legend wrapperStyle={{ color: '#A1A1A1', ...monoFont }} iconType="circle" />

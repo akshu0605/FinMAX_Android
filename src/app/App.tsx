@@ -1,8 +1,7 @@
-import { useState, useEffect } from 'react';
+import { lazy, Suspense, useState, useEffect } from 'react';
 import { Toaster, toast } from 'sonner';
 import { LandingPage } from './components/LandingPage';
 import { AuthModal } from './components/AuthModal';
-import { Dashboard } from './components/Dashboard';
 import { SmoothScroll } from './components/SmoothScroll';
 import { CyberBackground } from './components/CyberBackground';
 import { auth } from './utils/localStorage-auth';
@@ -10,6 +9,8 @@ import { supabase } from './utils/supabase';
 import { Capacitor } from '@capacitor/core';
 import { App as NativeApp } from '@capacitor/app';
 import { Browser } from '@capacitor/browser';
+
+const Dashboard = lazy(() => import('./components/Dashboard').then(({ Dashboard }) => ({ default: Dashboard })));
 
 export default function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -162,9 +163,9 @@ export default function App() {
         <div
           className="text-xl animate-pulse"
           style={{
-            color: '#00F2EA',
+            color: '#DDB96B',
             fontFamily: 'JetBrains Mono, "Courier New", monospace',
-            textShadow: '0 0 20px rgba(0,242,234,0.6)',
+            textShadow: '0 0 20px rgba(221,185,107,0.25)',
           }}
         >
           Loading...
@@ -183,7 +184,7 @@ export default function App() {
           toastOptions={{
             style: {
               background: 'rgba(10,10,10,0.95)',
-              border: '1px solid rgba(0,242,234,0.25)',
+              border: '1px solid rgba(221,185,107,0.25)',
               color: '#fff',
               fontFamily: 'JetBrains Mono, "Courier New", monospace',
               backdropFilter: 'blur(20px)',
@@ -196,13 +197,15 @@ export default function App() {
           {!isAuthenticated ? (
             <LandingPage onGetStarted={handleGetStarted} onLogin={handleOpenLogin} />
           ) : (
-            <Dashboard
-              userName={userName}
-              userEmail={userEmail}
-              userId={userId}
-              accessToken={accessToken}
-              onLogout={handleLogout}
-            />
+            <Suspense fallback={<div className="min-h-screen bg-[#080909]" aria-label="Loading dashboard" />}>
+              <Dashboard
+                userName={userName}
+                userEmail={userEmail}
+                userId={userId}
+                accessToken={accessToken}
+                onLogout={handleLogout}
+              />
+            </Suspense>
           )}
         </div>
 

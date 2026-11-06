@@ -17,7 +17,7 @@ import { GlassCard } from './ui/GlassCard';
 import './LandingPage.css';
 
 // Design Tokens
-const CYAN = '#45c8a1';
+const CYAN = '#DDB96B';
 const headingFont: React.CSSProperties = {
   fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, sans-serif',
   letterSpacing: '-0.02em',
@@ -336,12 +336,12 @@ export function LandingPage({ onGetStarted, onLogin }: LandingPageProps) {
                   <button type="button" tabIndex={-1}>Add expense</button>
                 </div>
                 <div className="landing-product-stats">
-                  <div><span>Monthly income</span><strong>₹1,00,000</strong><small>October</small></div>
-                  <div><span>Total spent</span><strong>₹29,208</strong><small className="is-rose">29% of income</small></div>
-                  <div><span>Available to save</span><strong>₹70,792</strong><small className="is-good">On track</small></div>
+                  <div><span>Monthly income</span><strong>••••••</strong><small>Your data</small></div>
+                  <div><span>Total expenses</span><strong>••••••</strong><small className="is-rose">By category</small></div>
+                  <div><span>Total savings</span><strong>••••••</strong><small className="is-good">Your overview</small></div>
                 </div>
                 <div className="landing-product-chart">
-                  <div className="landing-product-chart-head"><span>Spending this month</span><strong>₹29,208</strong></div>
+                  <div className="landing-product-chart-head"><span>Spending trend</span><strong>See your activity</strong></div>
                   <div className="landing-product-bars" aria-hidden="true">
                     {[34, 57, 43, 76, 52, 68, 46, 81, 61, 89, 64, 73].map((height, index) => (
                       <i key={index} style={{ height: `${height}%` }} />
@@ -354,9 +354,9 @@ export function LandingPage({ onGetStarted, onLogin }: LandingPageProps) {
           {/* Floating stats overlay */}
           <div className="landing-hero-metrics absolute bottom-8 left-8 right-8 grid grid-cols-3 gap-3">
             {[
-              { label: 'Active Users', value: '24K+' },
-              { label: 'Avg Monthly Savings', value: '₹8,400' },
-              { label: 'Transactions Tracked', value: '1.2M+' },
+              { label: 'Track', value: 'Expenses' },
+              { label: 'Plan', value: 'Budgets' },
+              { label: 'Stay ready', value: 'Reminders' },
             ].map((stat, i) => (
               <motion.div
                 key={stat.label}
@@ -436,10 +436,10 @@ export function LandingPage({ onGetStarted, onLogin }: LandingPageProps) {
             </div>
           </div>
           <div className="landing-ai-preview" aria-label="AI insights preview">
-            <div className="landing-ai-preview-top"><span>FINMAX INSIGHT</span><span>Updated today</span></div>
-            <div className="landing-ai-preview-main"><BarChart3 className="size-7" /><div><strong>Food & dining is up 18%</strong><span>Compared with your previous period</span></div></div>
+            <div className="landing-ai-preview-top"><span>FINMAX INSIGHTS</span><span>Based on your activity</span></div>
+            <div className="landing-ai-preview-main"><BarChart3 className="size-7" /><div><strong>Understand your spending patterns</strong><span>Trend changes and potential savings, from your transaction history</span></div></div>
             <div className="landing-ai-preview-chart" aria-hidden="true"><i /><i /><i /><i /><i /><i /><i /></div>
-            <div className="landing-ai-preview-foot"><span>Potential monthly saving</span><strong>₹1,240</strong></div>
+            <div className="landing-ai-preview-foot"><span>Your data stays yours</span><strong>FinMax</strong></div>
           </div>
         </div>
       </Section>
@@ -461,7 +461,7 @@ export function LandingPage({ onGetStarted, onLogin }: LandingPageProps) {
                 {[
                   { title: 'Fair splitting', desc: 'Equal or custom splits — works for any group, any scenario.' },
                   { title: 'One-tap settlement', desc: 'Resolve balances instantly. No back-and-forth required.' },
-                  { title: 'Real-time sync', desc: 'Everyone in the group sees the same numbers, always.' },
+                  { title: 'Shared group view', desc: 'Keep group expenses, members and balances together.' },
                 ].map((item, i) => (
                   <div key={i} className="flex gap-4">
                     <div className="w-6 h-6 rounded-full flex items-center justify-center shrink-0 mt-1" style={{ background: `${CYAN}20`, border: `1px solid ${CYAN}40` }}>
@@ -486,8 +486,8 @@ export function LandingPage({ onGetStarted, onLogin }: LandingPageProps) {
                 <GlassCard rounded="apple" spacing="md" className="border-white/20">
                   <div className="flex items-center justify-between">
                     <div>
-                      <div className="text-xs opacity-50 mb-1 uppercase tracking-widest" style={monoFont}>Goa Trip · 2025</div>
-                      <div className="text-xl font-bold" style={headingFont}>You are owed ₹4,200</div>
+                      <div className="text-xs opacity-50 mb-1 uppercase tracking-widest" style={monoFont}>Shared expenses</div>
+                      <div className="text-xl font-bold" style={headingFont}>See group balances clearly</div>
                     </div>
                     <div className="w-12 h-12 rounded-full border-2 border-dashed border-cyan-500/50 flex items-center justify-center animate-spin-slow">
                       <Star className="size-5 text-cyan-500" />

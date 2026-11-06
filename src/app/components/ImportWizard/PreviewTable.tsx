@@ -22,7 +22,7 @@ import {
   type FinMaxCategory,
 } from '../../utils/statementParser/types';
 
-const TEAL = '#00f2ff';
+const TEAL = '#DDB96B';
 const monoFont: React.CSSProperties = { fontFamily: 'JetBrains Mono, "Courier New", monospace' };
 const headingFont: React.CSSProperties = { fontFamily: 'Inter, Geist, SF Pro, sans-serif' };
 
@@ -145,7 +145,7 @@ export function PreviewTable({
         className="grid grid-cols-2 sm:grid-cols-4 gap-3 p-4 rounded-2xl"
         style={{
           background: 'rgba(255,255,255,0.03)',
-          border: '1px solid rgba(0,242,234,0.15)',
+          border: '1px solid rgba(221,185,107,0.15)',
         }}
       >
         <div>
@@ -226,7 +226,7 @@ export function PreviewTable({
                 }}
                 className={`px-3 py-1.5 rounded-lg text-xs transition-all whitespace-nowrap ${
                   active
-                    ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-400/40 font-semibold shadow-[0_0_12px_rgba(0,242,234,0.15)]'
+                    ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-400/40 font-semibold shadow-[0_0_12px_rgba(221,185,107,0.15)]'
                     : 'bg-white/5 text-neutral-400 border border-transparent hover:text-white'
                 }`}
                 style={monoFont}

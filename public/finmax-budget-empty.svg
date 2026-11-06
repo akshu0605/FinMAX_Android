@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 240" fill="none">
+  <defs>
+    <linearGradient id="g" x1="73" y1="53" x2="244" y2="197" gradientUnits="userSpaceOnUse"><stop stop-color="#FFF0BE"/><stop offset=".5" stop-color="#DDB96B"/><stop offset="1" stop-color="#70552C"/></linearGradient>
+    <linearGradient id="tile" x1="96" y1="69" x2="221" y2="188" gradientUnits="userSpaceOnUse"><stop stop-color="#50402A"/><stop offset="1" stop-color="#171513"/></linearGradient>
+    <radialGradient id="halo" cx="0" cy="0" r="1" gradientTransform="matrix(114 0 0 44 160 184)" gradientUnits="userSpaceOnUse"><stop stop-color="#DDB96B" stop-opacity=".32"/><stop offset="1" stop-color="#DDB96B" stop-opacity="0"/></radialGradient>
+    <filter id="blur" x="31" y="148" width="258" height="82" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feGaussianBlur stdDeviation="12"/></filter>
+  </defs>
+  <ellipse cx="160" cy="184" fill="url(#halo)" rx="114" ry="44"/>
+  <ellipse cx="160" cy="188" fill="#DDB96B" fill-opacity=".28" filter="url(#blur)" rx="102" ry="20"/>
+  <g transform="rotate(-12 160 129)">
+    <rect x="102" y="60" width="116" height="116" rx="28" fill="url(#tile)" stroke="url(#g)" stroke-opacity=".55" stroke-width="2"/>
+    <path d="M132 143v-25m29 25V96m29 47v-37" stroke="url(#g)" stroke-linecap="round" stroke-width="11"/>
+    <path d="m123 151 37 15 48-5" stroke="#F4D995" stroke-opacity=".55" stroke-width="2"/>
+  </g>
+  <path d="M63 194h194" stroke="url(#g)" stroke-opacity=".5" stroke-width="2" stroke-linecap="round"/>
+</svg>

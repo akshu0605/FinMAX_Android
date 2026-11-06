@@ -30,3 +30,16 @@ html {
   .finmax-contact .max-w-7xl { padding-left: 1rem; padding-right: 1rem; }
   .finmax-contact .p-8 { padding: 1.25rem; }
 }
+
+/* Shared touch, focus, and mobile form defaults */
+body { background: #080909; color: #fff; }
+button, a, input, select, textarea { -webkit-tap-highlight-color: transparent; }
+button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+  outline: 2px solid #F4D995;
+  outline-offset: 2px;
+}
+@media (max-width: 640px) {
+  input, select, textarea { font-size: 16px; }
+  .fixed.inset-0.z-50 { padding-top: env(safe-area-inset-top, 0px); }
+  .fixed.inset-0.z-50 > div { max-height: 100dvh; }
+}

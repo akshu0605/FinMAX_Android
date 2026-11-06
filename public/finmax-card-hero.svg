@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" fill="none">
+  <defs>
+    <linearGradient id="card" x1="213" y1="48" x2="470" y2="304" gradientUnits="userSpaceOnUse"><stop stop-color="#35312A"/><stop offset=".32" stop-color="#151515"/><stop offset="1" stop-color="#080808"/></linearGradient>
+    <linearGradient id="edge" x1="195" y1="53" x2="465" y2="292" gradientUnits="userSpaceOnUse"><stop stop-color="#F7E0A7"/><stop offset=".3" stop-color="#8E7444"/><stop offset="1" stop-color="#393128"/></linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FFF0BE"/><stop offset="1" stop-color="#BD9146"/></linearGradient>
+    <linearGradient id="base" x1="96" y1="278" x2="551" y2="329" gradientUnits="userSpaceOnUse"><stop stop-color="#161514"/><stop offset=".5" stop-color="#6A5535"/><stop offset="1" stop-color="#111"/></linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientTransform="matrix(220 32 -32 220 351 297)" gradientUnits="userSpaceOnUse"><stop stop-color="#C39853" stop-opacity=".38"/><stop offset="1" stop-color="#C39853" stop-opacity="0"/></radialGradient>
+    <filter id="shadow" x="32" y="12" width="580" height="367" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feGaussianBlur stdDeviation="18"/></filter>
+  </defs>
+  <ellipse cx="346" cy="296" fill="url(#glow)" rx="228" ry="64"/>
+  <path fill="#000" fill-opacity=".78" filter="url(#shadow)" d="m202 75 263-57c13-3 25 7 22 20l-39 197c-2 9-9 16-18 18l-276 61c-14 3-27-8-24-22l43-198c2-9 12-17 29-19Z"/>
+  <path fill="url(#base)" stroke="#5C4B32" stroke-width="2" d="m78 275 422-29 60 30-429 44-53-24v-21Z"/>
+  <path fill="#0A0A0A" d="m131 296 429-38v18l-429 45v-25Z" opacity=".84"/>
+  <g transform="rotate(-12 337 163)">
+    <rect x="183" y="47" width="307" height="211" rx="24" fill="url(#card)" stroke="url(#edge)" stroke-width="2.5"/>
+    <path d="M203 58c74-15 194-23 264-17" stroke="#FFF3D8" stroke-opacity=".34" stroke-width="2"/>
+    <rect x="222" y="117" width="47" height="40" rx="8" fill="url(#gold)" stroke="#F8E8B9" stroke-opacity=".8"/>
+    <path d="M245 118v39m-22-19h46m-35-19-3 19 4 19m22-38 3 19-4 19" stroke="#9C783E" stroke-opacity=".7" stroke-width="1.4"/>
+    <path d="M280 128c6 6 6 12 0 18m6-22c9 9 9 17 0 26m6-30c12 12 12 22 0 34" stroke="#D8D2C5" stroke-width="2" stroke-linecap="round" opacity=".8"/>
+    <path d="m425 85 10-16 8 12 14-2-9 12 4 13-14-7-13 8 3-13-10-7 14 0Z" stroke="#D2B577" stroke-width="1.5" opacity=".9"/>
+    <text x="361" y="216" fill="#F2EDE2" font-family="Arial,sans-serif" font-size="19" font-style="italic" letter-spacing="2">FINMAX</text>
+  </g>
+</svg>

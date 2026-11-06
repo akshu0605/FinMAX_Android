@@ -7,7 +7,7 @@ import { GlassCard } from './ui/GlassCard';
 import { NeonButton } from './ui/NeonButton';
 
 // Design tokens
-const TEAL = '#00F2EA';
+const TEAL = '#DDB96B';
 const headingFont: React.CSSProperties = { fontFamily: 'Inter, Geist, SF Pro, sans-serif' };
 const monoFont: React.CSSProperties = { fontFamily: 'JetBrains Mono, "Courier New", monospace' };
 
@@ -17,7 +17,7 @@ const inputBase: React.CSSProperties = {
   background: 'rgba(255,255,255,0.05)',
   backdropFilter: 'blur(12px)',
   WebkitBackdropFilter: 'blur(12px)',
-  border: '1px solid rgba(0,242,234,0.18)',
+  border: '1px solid rgba(221,185,107,0.18)',
   borderRadius: '12px',
   color: '#fff',
   outline: 'none',
@@ -28,10 +28,10 @@ const inputBase: React.CSSProperties = {
 
 const focusInput = (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => {
   e.currentTarget.style.borderColor = TEAL;
-  e.currentTarget.style.boxShadow = `0 0 16px rgba(0,242,234,0.25), inset 0 1px 0 rgba(255,255,255,0.07)`;
+  e.currentTarget.style.boxShadow = `0 0 16px rgba(221,185,107,0.25), inset 0 1px 0 rgba(255,255,255,0.07)`;
 };
 const blurInput = (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-  e.currentTarget.style.borderColor = 'rgba(0,242,234,0.18)';
+  e.currentTarget.style.borderColor = 'rgba(221,185,107,0.18)';
   e.currentTarget.style.boxShadow = 'inset 0 1px 0 rgba(255,255,255,0.07)';
 };
 
@@ -54,7 +54,7 @@ export function ContactDeveloper({ onBack }: ContactDeveloperProps) {
     { name: 'GitHub', icon: Github, url: 'https://github.com/akshu0605', border: 'rgba(255,255,255,0.18)' },
     { name: 'LinkedIn', icon: Linkedin, url: 'https://in.linkedin.com/in/akshit-jaswal-7554172b7', border: 'rgba(0,119,181,0.5)' },
     { name: 'X (Twitter)', icon: Twitter, url: 'https://x.com/im__akshit', border: 'rgba(29,161,242,0.5)' },
-    { name: 'Email', icon: Mail, url: 'mailto:replyakshit@gmail.com', border: 'rgba(0,242,234,0.4)' },
+    { name: 'Email', icon: Mail, url: 'mailto:replyakshit@gmail.com', border: 'rgba(221,185,107,0.4)' },
   ];
 
   const infoCards = [
@@ -105,11 +105,11 @@ export function ContactDeveloper({ onBack }: ContactDeveloperProps) {
             className="w-10 h-10 rounded-xl flex items-center justify-center group transition-all"
             style={{
               background: 'rgba(255,255,255,0.05)',
-              border: '1px solid rgba(0,242,234,0.18)',
+              border: '1px solid rgba(221,185,107,0.18)',
               backdropFilter: 'blur(12px)',
               color: '#A1A1A1',
             }}
-            whileHover={{ borderColor: TEAL, color: TEAL, boxShadow: `0 0 14px rgba(0,242,234,0.2)` }}
+            whileHover={{ borderColor: TEAL, color: TEAL, boxShadow: `0 0 14px rgba(221,185,107,0.2)` }}
           >
             <ArrowLeft className="size-5" />
           </motion.button>
@@ -124,7 +124,7 @@ export function ContactDeveloper({ onBack }: ContactDeveloperProps) {
           className="text-center mb-12">
           <h1 className="text-5xl font-bold mb-4 text-white" style={headingFont}>
             Get in{' '}
-            <span style={{ color: TEAL, textShadow: `0 0 30px rgba(0,242,234,0.4)` }}>Touch</span>
+            <span style={{ color: TEAL, textShadow: `0 0 30px rgba(221,185,107,0.4)` }}>Touch</span>
           </h1>
           <p className="text-xl max-w-2xl mx-auto" style={{ color: '#A1A1A1', ...monoFont }}>
             Facing issues, bugs, or have suggestions? Let's improve FinMax together 🚀
@@ -140,7 +140,7 @@ export function ContactDeveloper({ onBack }: ContactDeveloperProps) {
               className="p-8 relative overflow-hidden"
               spacing="none"
               style={{
-                boxShadow: '0 30px 80px rgba(0,0,0,0.7), 0 0 50px rgba(0,242,234,0.05)',
+                boxShadow: '0 30px 80px rgba(0,0,0,0.7), 0 0 50px rgba(221,185,107,0.05)',
               }}
             >
               {/* Sheen */}
@@ -148,15 +148,15 @@ export function ContactDeveloper({ onBack }: ContactDeveloperProps) {
                 style={{ background: 'linear-gradient(135deg, rgba(255,255,255,0.08) 0%, transparent 60%)' }} />
               {/* Top glow line */}
               <div className="absolute top-0 left-0 right-0 h-px"
-                style={{ background: 'linear-gradient(90deg, transparent, rgba(0,242,234,0.5), transparent)' }} />
+                style={{ background: 'linear-gradient(90deg, transparent, rgba(221,185,107,0.5), transparent)' }} />
 
               <div className="flex items-center gap-3 mb-7 relative z-10">
                 <div className="w-12 h-12 rounded-xl flex items-center justify-center"
                   style={{
-                    background: 'rgba(0,242,234,0.1)', border: '1px solid rgba(0,242,234,0.25)',
-                    boxShadow: '0 0 20px rgba(0,242,234,0.12), inset 0 1px 0 rgba(0,242,234,0.2)',
+                    background: 'rgba(221,185,107,0.1)', border: '1px solid rgba(221,185,107,0.25)',
+                    boxShadow: '0 0 20px rgba(221,185,107,0.12), inset 0 1px 0 rgba(221,185,107,0.2)',
                   }}>
-                  <MessageSquare className="size-6" style={{ color: TEAL, filter: 'drop-shadow(0 0 6px #00F2EA)' }} />
+                  <MessageSquare className="size-6" style={{ color: TEAL, filter: 'drop-shadow(0 0 6px #DDB96B)' }} />
                 </div>
                 <div>
                   <h2 className="text-2xl font-bold text-white" style={headingFont}>Send a Message</h2>
@@ -192,7 +192,7 @@ export function ContactDeveloper({ onBack }: ContactDeveloperProps) {
                 </div>
 
                 <NeonButton type="submit"
-                  className="w-full py-4 text-base font-bold shadow-[0_0_22px_rgba(0,242,234,0.4)]"
+                  className="w-full py-4 text-base font-bold shadow-[0_0_22px_rgba(221,185,107,0.4)]"
                   style={{ background: TEAL, color: '#000' }}
                 >
                   <span>Send Message</span>
@@ -212,10 +212,10 @@ export function ContactDeveloper({ onBack }: ContactDeveloperProps) {
               <div className="flex items-center gap-4 relative z-10">
                 <div className="w-16 h-16 rounded-full flex items-center justify-center"
                   style={{
-                    background: 'rgba(0,242,234,0.1)', border: '1px solid rgba(0,242,234,0.3)',
-                    boxShadow: '0 0 24px rgba(0,242,234,0.15), inset 0 1px 0 rgba(0,242,234,0.2)',
+                    background: 'rgba(221,185,107,0.1)', border: '1px solid rgba(221,185,107,0.3)',
+                    boxShadow: '0 0 24px rgba(221,185,107,0.15), inset 0 1px 0 rgba(221,185,107,0.2)',
                   }}>
-                  <Code className="size-8" style={{ color: TEAL, filter: 'drop-shadow(0 0 7px #00F2EA)' }} />
+                  <Code className="size-8" style={{ color: TEAL, filter: 'drop-shadow(0 0 7px #DDB96B)' }} />
                 </div>
                 <div>
                   <div className="text-sm" style={{ color: '#A1A1A1', ...monoFont }}>Developer</div>
@@ -274,7 +274,7 @@ export function ContactDeveloper({ onBack }: ContactDeveloperProps) {
           <div className="absolute inset-0 pointer-events-none"
             style={{ background: 'linear-gradient(135deg, rgba(255,255,255,0.07) 0%, transparent 60%)' }} />
           <div className="absolute top-0 left-0 right-0 h-px"
-            style={{ background: 'linear-gradient(90deg, transparent, rgba(0,242,234,0.4), transparent)' }} />
+            style={{ background: 'linear-gradient(90deg, transparent, rgba(221,185,107,0.4), transparent)' }} />
 
           <h2 className="text-2xl font-bold mb-7 text-center text-white relative z-10" style={headingFont}>
             Connect With Me <span style={{ color: TEAL }}>🌐</span>
@@ -291,7 +291,7 @@ export function ContactDeveloper({ onBack }: ContactDeveloperProps) {
                   boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.07)',
                 }}
                 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5 + i * 0.08 }}
-                whileHover={{ y: -5, scale: 1.04, borderColor: border, boxShadow: `0 0 24px rgba(0,242,234,0.12), inset 0 1px 0 rgba(255,255,255,0.1)` }}
+                whileHover={{ y: -5, scale: 1.04, borderColor: border, boxShadow: `0 0 24px rgba(221,185,107,0.12), inset 0 1px 0 rgba(255,255,255,0.1)` }}
               >
                 <div className="absolute inset-0 rounded-[inherit] pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity"
                   style={{ background: 'linear-gradient(135deg, rgba(255,255,255,0.09) 0%, transparent 60%)' }} />
