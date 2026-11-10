@@ -11,7 +11,7 @@
     "preview": "vite preview",
     "android:sync": "npm run build && cap sync android",
     "android:open": "cap open android",
-    "android:apk": "npm run android:sync && cd android && gradlew.bat assembleDebug",
+    "android:apk": "npm run android:sync && cd android && gradlew.bat assembleDebug && cd .. && powershell -NoProfile -ExecutionPolicy Bypass -File scripts/package-apk.ps1",
     "android:aab": "npm run android:sync && cd android && gradlew.bat bundleRelease",
     "android:amazon-apk": "npm run android:sync && cd android && gradlew.bat assembleRelease",
     "android:release": "npm run android:sync && cd android && gradlew.bat bundleRelease assembleRelease"

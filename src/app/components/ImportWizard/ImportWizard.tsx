@@ -454,7 +454,7 @@ export function ImportWizard({
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: 15 }}
           transition={{ duration: 0.25, ease: 'easeOut' }}
-          className="w-full max-w-5xl rounded-[28px] relative overflow-hidden flex flex-col max-h-[92vh]"
+          className="w-full max-w-5xl rounded-[28px] relative overflow-hidden flex min-h-0 flex-col max-h-[92dvh]"
           style={{
             background: 'rgba(9, 10, 14, 0.96)',
             border: '1px solid rgba(221,185,107,0.22)',
@@ -472,8 +472,8 @@ export function ImportWizard({
           />
 
           {/* Modal Header */}
-          <div className="flex items-center justify-between p-6 border-b border-white/10 shrink-0">
-            <div className="flex items-center gap-3">
+          <div className="flex items-center justify-between gap-3 p-6 border-b border-white/10 shrink-0">
+            <div className="flex min-w-0 items-center gap-3">
               <div
                 className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0"
                 style={{
@@ -483,8 +483,8 @@ export function ImportWizard({
               >
                 <Upload className="size-5" style={{ color: TEAL }} />
               </div>
-              <div>
-                <h2 className="text-xl font-bold text-white flex items-center gap-2" style={headingFont}>
+              <div className="min-w-0">
+                <h2 className="text-xl font-bold text-white flex flex-wrap items-center gap-x-2 gap-y-1" style={headingFont}>
                   Import Financial Statement
                   <span
                     className="text-[10px] px-2 py-0.5 rounded-full uppercase tracking-wider"
@@ -514,7 +514,7 @@ export function ImportWizard({
           </div>
 
           {/* Modal Body */}
-          <div className="flex-1 overflow-y-auto p-6 space-y-6">
+          <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain p-6 space-y-6">
             {/* Step: File Selection (idle) */}
             {step === 'idle' && (
               <div className="space-y-6">

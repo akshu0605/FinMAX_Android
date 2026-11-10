@@ -11,7 +11,6 @@ import { GlassCard } from './ui/GlassCard';
 import { NeonButton } from './ui/NeonButton';
 import { toast } from 'sonner';
 import { exportAllUserDataToCsv, importUserDataFromCsv } from '../utils/csvDataSync';
-import { exportFinancialReportToPdf } from '../utils/pdfExport';
 import { api } from '../utils/api';
 import { supabase } from '../utils/supabase';
 import { Sparkles } from 'lucide-react';
@@ -536,17 +535,18 @@ export function Settings({ userId, userName, userEmail, onBack, onLogout, curren
   const handleExportPdf = async () => {
     try {
       setIsExportingPdf(true);
-      const [expRes, incRes, budRes] = await Promise.all([
+      const [expRes, incRes, budRes, pdfExporter] = await Promise.all([
         api.getExpenses(),
         api.getIncomes(),
         api.getBudgets(),
+        import('../utils/pdfExport'),
       ]);
 
       const expenses = expRes.data?.expenses || [];
       const incomes = incRes.data?.incomes || [];
       const budgets = budRes.data?.budgets || [];
 
-      exportFinancialReportToPdf({
+      await pdfExporter.exportFinancialReportToPdf({
         userEmail,
         currency,
         expenses,

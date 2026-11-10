@@ -1,4 +1,4 @@
-import jsPDF from 'jspdf';
+import { jsPDF } from 'jspdf';
 
 export interface PdfExportData {
   userEmail: string;
@@ -27,7 +27,7 @@ export interface PdfExportData {
 /**
  * Generates and downloads a clean, professional PDF financial report for FinMax.
  */
-export function exportFinancialReportToPdf(data: PdfExportData): void {
+export async function exportFinancialReportToPdf(data: PdfExportData): Promise<void> {
   const { userEmail, currency, expenses, incomes = [], budgets = [] } = data;
 
   const doc = new jsPDF({
@@ -36,16 +36,35 @@ export function exportFinancialReportToPdf(data: PdfExportData): void {
     format: 'a4',
   });
 
+  // Embed a local Unicode font so Devanagari expense names and the rupee sign
+  // survive PDF export. If the asset cannot be loaded, the report still exports.
+  let reportFont = 'helvetica';
+  try {
+    const fontResponse = await fetch('/fonts/NotoSansDevanagari-Regular.ttf');
+    if (!fontResponse.ok) throw new Error('Report font unavailable');
+    const fontBytes = new Uint8Array(await fontResponse.arrayBuffer());
+    let binary = '';
+    const chunkSize = 0x8000;
+    for (let offset = 0; offset < fontBytes.length; offset += chunkSize) {
+      binary += String.fromCharCode(...fontBytes.subarray(offset, offset + chunkSize));
+    }
+    doc.addFileToVFS('NotoSansDevanagari-Regular.ttf', btoa(binary));
+    doc.addFont('NotoSansDevanagari-Regular.ttf', 'NotoSansDevanagari', 'normal');
+    reportFont = 'NotoSansDevanagari';
+  } catch {
+    // Continue with jsPDF's built-in font if the bundled font asset is unavailable.
+  }
+
   const pageWidth = doc.internal.pageSize.getWidth();
   const pageHeight = doc.internal.pageSize.getHeight();
   const margin = 15;
   const contentWidth = pageWidth - margin * 2;
   let y = margin;
 
-  // Helper for safe strings (handles special characters)
+  // Preserve readable merchant names, including Indic script, while removing controls.
   const sanitize = (text: string | null | undefined): string => {
     if (!text) return '';
-    return text.replace(/[^\x20-\x7E]/g, ' ').trim();
+    return text.replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F]/g, ' ').replace(/\s+/g, ' ').trim();
   };
 
   const formatDate = (dateStr: string): string => {
@@ -62,6 +81,8 @@ export function exportFinancialReportToPdf(data: PdfExportData): void {
     const num = isNaN(val) ? 0 : val;
     return `${currency} ${num.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
   };
+
+  const fontFor = (text: string): string => /[\u0900-\u097f\u20b9]/.test(text) ? reportFont : 'helvetica';
 
   const checkPageBreak = (neededHeight: number) => {
     if (y + neededHeight > pageHeight - margin) {
@@ -124,7 +145,7 @@ export function exportFinancialReportToPdf(data: PdfExportData): void {
     doc.setTextColor(100, 110, 120);
     doc.text(card.label, cardX + 4, y + 6);
 
-    doc.setFont('helvetica', 'bold');
+    doc.setFont(fontFor(card.val), 'normal');
     doc.setFontSize(10);
     doc.setTextColor(...card.color);
     doc.text(card.val, cardX + 4, y + 13);
@@ -161,11 +182,12 @@ export function exportFinancialReportToPdf(data: PdfExportData): void {
 
     for (const [cat, amt] of sortedCats.slice(0, 6)) {
       const share = totalExpense > 0 ? ((amt / totalExpense) * 100).toFixed(1) : '0';
-      doc.setFont('helvetica', 'normal');
+      doc.setFont(fontFor(sanitize(cat)), 'normal');
       doc.setFontSize(8);
       doc.setTextColor(40, 50, 60);
       doc.text(sanitize(cat), margin + 4, y + 4.5);
       doc.text(`${share}%`, margin + contentWidth / 2, y + 4.5);
+      doc.setFont(fontFor(formatMoney(amt)), 'normal');
       doc.text(formatMoney(amt), margin + contentWidth - 4, y + 4.5, { align: 'right' });
       y += 6;
     }
@@ -203,33 +225,38 @@ export function exportFinancialReportToPdf(data: PdfExportData): void {
     const sortedExpenses = [...expenses].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
     sortedExpenses.forEach((exp, idx) => {
-      checkPageBreak(8);
-
+      // Keep full descriptions and categories by wrapping each into its row.
+      const desc = sanitize(exp.title || exp.note || 'Expense');
+      const category = sanitize(exp.category || 'General');
+      doc.setFont(fontFor(desc), 'normal');
+      doc.setFontSize(8);
+      const descriptionLines = doc.splitTextToSize(desc || 'Expense', 78);
+      doc.setFont(fontFor(category), 'normal');
+      const categoryLines = doc.splitTextToSize(category, 54);
+      const rowHeight = Math.max(7, Math.max(descriptionLines.length, categoryLines.length) * 4 + 2);
+      checkPageBreak(rowHeight);
+      doc.setTextColor(50, 60, 70);
       if (idx % 2 === 1) {
         doc.setFillColor(248, 250, 252);
-        doc.rect(margin, y, contentWidth, 6.5, 'F');
+        doc.rect(margin, y, contentWidth, rowHeight, 'F');
+        doc.setTextColor(50, 60, 70);
       }
 
-      doc.setFont('helvetica', 'normal');
-      doc.setFontSize(8);
-      doc.setTextColor(50, 60, 70);
-
       // Date
+      doc.setFont('helvetica', 'normal');
       doc.text(formatDate(exp.date), margin + 4, y + 4.5);
-
-      // Description (truncated if too long)
-      const desc = sanitize(exp.title || exp.note || 'Expense');
-      const maxDescWidth = 80;
-      doc.text(doc.splitTextToSize(desc, maxDescWidth)[0] || '', margin + 30, y + 4.5);
+      doc.setFont(fontFor(desc), 'normal');
+      doc.text(descriptionLines, margin + 30, y + 4.5, { lineHeightFactor: 1.15 });
 
       // Category
-      doc.text(sanitize(exp.category || 'General'), margin + 115, y + 4.5);
+      doc.setFont(fontFor(category), 'normal');
+      doc.text(categoryLines, margin + 115, y + 4.5, { lineHeightFactor: 1.15 });
 
       // Amount
-      doc.setFont('helvetica', 'bold');
+      doc.setFont(fontFor(formatMoney(Number(exp.amount))), 'normal');
       doc.text(formatMoney(Number(exp.amount)), margin + contentWidth - 4, y + 4.5, { align: 'right' });
 
-      y += 6.5;
+      y += rowHeight;
     });
   }
 

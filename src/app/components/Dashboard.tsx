@@ -1138,13 +1138,13 @@ export function Dashboard({ userName, userEmail, userId, onLogout }: DashboardPr
       {/* Income Setup Overlay */}
       {!loading && salary === 0 && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-4" style={{ background: 'rgba(0,0,0,0.8)', backdropFilter: 'blur(20px)' }}>
-          <GlassCard spacing="lg" interactive className="w-full max-w-md text-center">
+          <GlassCard spacing="lg" rounded="apple" className="welcome-income-card w-full max-w-md text-center" role="dialog" aria-modal="true" aria-labelledby="welcome-heading">
             <div className="w-20 h-20 rounded-2xl mx-auto mb-6 flex items-center justify-center"
               style={{ background: 'rgba(0,242,255,0.1)', border: '1px solid rgba(0,242,255,0.2)' }}>
               <Wallet className="size-10 text-[var(--ns-cyan)]" />
             </div>
-            <h2 className="text-3xl font-bold mb-3 text-white" style={headingFont}>Welcome to FinMax!</h2>
-            <p className="mb-8 opacity-60 text-sm" style={monoFont}>To get started, enter your monthly income. This helps us calculate your savings and track your budgets accurately.</p>
+            <h2 id="welcome-heading" className="text-3xl font-bold mb-3 text-white" style={headingFont}>Welcome to FinMax!</h2>
+            <p className="max-w-sm mx-auto mb-7 text-sm leading-relaxed text-neutral-300" style={headingFont}>Enter your monthly income to calculate your savings and keep your budgets on track.</p>
             <form onSubmit={async (e) => {
               e.preventDefault();
               const val = (e.currentTarget.elements.namedItem('income') as HTMLInputElement).value;
@@ -1160,9 +1160,9 @@ export function Dashboard({ userName, userEmail, userId, onLogout }: DashboardPr
               fetchData();
             }}>
               <div className="mb-6">
-                <input name="income" type="number" step="0.01" required placeholder="Monthly income (e.g. 50000)" autoFocus
-                  className="w-full text-center text-2xl font-bold bg-transparent border-b-2 py-4 focus:outline-none"
-                  style={{ borderColor: 'rgba(0,242,234,0.3)', color: TEAL, ...monoFont }}
+                <input name="income" type="number" min="0.01" step="0.01" inputMode="decimal" required placeholder="Monthly income (e.g. 50,000)"
+                  className="welcome-income-input w-full text-center text-xl font-semibold py-4 px-4 focus:outline-none"
+                  style={{ color: TEAL, ...headingFont }}
                 />
               </div>
               <NeonButton type="submit" size="lg" className="w-full">Start tracking</NeonButton>

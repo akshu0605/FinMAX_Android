@@ -34,7 +34,7 @@ async function getUserId() {
 
 function escapeCsvValue(value: unknown) {
   const text = value === null || value === undefined ? '' : String(value);
-  if (text.includes(',') || text.includes('"') || text.includes('\n')) {
+  if (text.includes(',') || text.includes('"') || text.includes('\n') || text.includes('\r')) {
     return `"${text.replace(/"/g, '""')}"`;
   }
   return text;
@@ -202,7 +202,8 @@ export async function exportAllUserDataToCsv() {
     ].map(escapeCsvValue).join(','));
   });
 
-  return lines.join('\n');
+  // UTF-8 BOM helps spreadsheet apps detect Unicode titles and names correctly.
+  return `\uFEFF${lines.join('\r\n')}`;
 }
 
 export async function importUserDataFromCsv(content: string): Promise<CsvSyncResult> {

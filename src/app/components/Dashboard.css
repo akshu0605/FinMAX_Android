@@ -649,3 +649,62 @@
 @media (hover:none) {
   #finmax-dashboard .dashboard-reminder-delete { opacity:1; }
 }
+
+/* Softer dashboard geometry and viewport-safe dialogs. */
+#finmax-dashboard .dashboard-stat-card {
+  border-radius: 26px !important;
+  padding: 1.2rem 1.35rem !important;
+  box-shadow: 0 12px 28px rgba(0,0,0,.2) !important;
+}
+#finmax-dashboard .welcome-income-card {
+  width: min(100%, 30rem);
+  max-height: min(90dvh, 44rem);
+  overflow-y: auto;
+  border-radius: 30px !important;
+  border-color: rgba(221,185,107,.17) !important;
+  background: linear-gradient(145deg, #191815, #121212 72%) !important;
+  box-shadow: 0 28px 90px rgba(0,0,0,.55) !important;
+}
+#finmax-dashboard .welcome-income-input {
+  border: 1px solid rgba(221,185,107,.25) !important;
+  border-radius: 16px !important;
+  background: rgba(255,255,255,.035) !important;
+  transition: border-color .18s ease, background .18s ease, box-shadow .18s ease;
+}
+#finmax-dashboard .welcome-income-input:focus {
+  border-color: rgba(221,185,107,.7) !important;
+  background: rgba(221,185,107,.045) !important;
+  box-shadow: 0 0 0 4px rgba(221,185,107,.08);
+}
+#finmax-dashboard #import-wizard-container { min-height: 0; }
+#finmax-dashboard #import-wizard-container > .min-h-0.flex-1 {
+  min-height: 0;
+  overscroll-behavior: contain;
+  scrollbar-gutter: stable;
+}
+#finmax-dashboard .import-processing-state {
+  display: flex;
+  min-height: min(48vh, 24rem);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem 1rem !important;
+}
+#finmax-dashboard .import-processing-state > img { width: 9rem; height: 6.8rem; }
+
+@media (max-width: 640px) {
+  #finmax-dashboard .dashboard-stat-card {
+    border-radius: 22px !important;
+    padding: .95rem !important;
+  }
+  #finmax-dashboard .welcome-income-card { border-radius: 26px !important; }
+  #finmax-dashboard .welcome-income-card h2 { font-size: 1.7rem; }
+  #finmax-dashboard #import-wizard-container {
+    max-height: calc(100dvh - env(safe-area-inset-top,0px) - env(safe-area-inset-bottom,0px));
+    border-radius: 1.5rem;
+  }
+  #finmax-dashboard #import-wizard-container > div.flex.items-center.justify-between.p-6 { padding: .9rem; }
+  #finmax-dashboard #import-wizard-container h2 { font-size: 1rem; line-height: 1.3; }
+  #finmax-dashboard #import-wizard-container .min-h-0.flex-1.overflow-y-auto { padding: .9rem; }
+  #finmax-dashboard .import-processing-state { min-height: 15rem; }
+}
