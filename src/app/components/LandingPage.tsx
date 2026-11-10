@@ -9,7 +9,6 @@ import {
   X,
   Sparkles,
   ReceiptText,
-  BarChart3,
 } from 'lucide-react';
 import { useState } from 'react';
 import { Logo } from './Logo';
@@ -173,6 +172,8 @@ export function LandingPage({ onGetStarted, onLogin }: LandingPageProps) {
           <button
             className="landing-menu-toggle md:hidden w-11 h-11 rounded-xl flex items-center justify-center text-white"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-expanded={mobileMenuOpen}
+            aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
           >
             {mobileMenuOpen ? <X className="size-6" /> : <Menu className="size-6" />}
           </button>
@@ -437,7 +438,7 @@ export function LandingPage({ onGetStarted, onLogin }: LandingPageProps) {
           </div>
           <div className="landing-ai-preview" aria-label="AI insights preview">
             <div className="landing-ai-preview-top"><span>FINMAX INSIGHTS</span><span>Based on your activity</span></div>
-            <div className="landing-ai-preview-main"><BarChart3 className="size-7" /><div><strong>Understand your spending patterns</strong><span>Trend changes and potential savings, from your transaction history</span></div></div>
+            <div className="landing-ai-preview-main"><img src="/finmax-insights.svg" alt="Illustration of a spending trend" /><div><strong>Understand your spending patterns</strong><span>Trend changes and potential savings, from your transaction history</span></div></div>
             <div className="landing-ai-preview-chart" aria-hidden="true"><i /><i /><i /><i /><i /><i /><i /></div>
             <div className="landing-ai-preview-foot"><span>Your data stays yours</span><strong>FinMax</strong></div>
           </div>
